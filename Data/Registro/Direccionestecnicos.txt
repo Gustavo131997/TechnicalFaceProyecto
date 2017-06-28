@@ -1,0 +1,2 @@
+ 0 , ANTOFAGASTA , EL LOA , CALAMA , Uno Oriente , 12 , 12 , 
+ 1 , ATACAMA  , CHAÑARAL , CHAÑARAL , Uno Oriente , 678 , 2 , 

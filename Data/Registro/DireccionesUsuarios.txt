@@ -1,0 +1,4 @@
+ 0 , TARAPACÃÂ , IQUIQUE , ALTO HOSPICIO , Uno Oriente , 122 , 12 , 
+ 1 , TARAPACÃÂ , IQUIQUE , ALTO HOSPICIO , Uno Oriente , 122 , 12 , 
+ 2 , ATACAMA , CHAÃARAL , CHAÃARAL , Uno Oriente , 678 , 2 , 
+ 3 , ATACAMA  , HUASCO , VALLENAR , Uno Oriente , 678 , 12 , 
