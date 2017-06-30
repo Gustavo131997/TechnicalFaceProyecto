@@ -17,13 +17,15 @@ public class ContactoTecnico extends javax.swing.JFrame {
      * Creates new form ContactoTecnico
      */   
     public ContactoTecnico(Tecnico tec) { 
+        initComponents();
         this.setTitle("Contacto");
-        if (tec.getDireccion().getNum_dep() == null || tec.getDireccion().getNum_dep().equals("") ) {
+        System.out.println(tec.getDireccion().getNum_dep());
+        if (tec.getDireccion().getNum_dep().equals("") ) {
            this.txtDireccion.setText(""+tec.getDireccion().getCalle()+" "+tec.getDireccion().getNum_calle()+" , "+tec.getDireccion().getComuna()+" , "+tec.getDireccion().getProvincia()+" , "+tec.getDireccion().getRegion()+".");
         }else{
             this.txtDireccion.setText(""+tec.getDireccion().getCalle()+" "+tec.getDireccion().getNum_calle()+" Departemento N° "+tec.getDireccion()+" , "+tec.getDireccion().getComuna()+" , "+tec.getDireccion().getProvincia()+" , "+tec.getDireccion().getRegion()+".");
         }  
-        initComponents();
+        
     }
 
     /**

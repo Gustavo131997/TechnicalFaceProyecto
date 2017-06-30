@@ -641,6 +641,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             tecnico.getDireccion().setCalle(this.jTextFieldCalle.getText());
             tecnico.getDireccion().setNum_calle(this.jTextFieldNCalle.getText());
             tecnico.getDireccion().setNum_dep(this.jTextFieldNDepar.getText());
+            tecnico.setPuntajes(new ArrayList<>());
             if (validarCamposObligatoriosTecnicos().equals("Ingrese los siguientes campos:\n")) {
                 if (validarContrasena() && validarEmail()) {
                     if (validarCampos.validarFormtCorreo(txtCorreo1.getText())) {

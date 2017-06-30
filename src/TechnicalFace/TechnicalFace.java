@@ -60,8 +60,10 @@ public class TechnicalFace {
         this.terminos_condiciones = terminos_condiciones;
     }
     public void cargarSistema(){
-        GestorArchUsuario.cargarArchivo(this);
-        GestorArchTecnico.cargarTecnicosGuardados(this);
+        GestorArchUsuario gestorUsu = new GestorArchUsuario();
+       gestorUsu.cargarArchivo(this);
+        GestorArchTecnico gestorTec = new GestorArchTecnico();
+        gestorTec.cargarTecnicosGuardados(this);
         GestorArchDirecciones.cargarDireccionesTecnico(this);
         GestorArchDirecciones.cargarDireccionesUsuario(this);
     }

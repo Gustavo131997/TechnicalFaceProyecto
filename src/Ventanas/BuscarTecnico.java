@@ -9,12 +9,8 @@ import Componentes.Render;
 import TechnicalFace.TechnicalFace;
 import TechnicalFace.Tecnico;
 import TechnicalFace.Usuario;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**

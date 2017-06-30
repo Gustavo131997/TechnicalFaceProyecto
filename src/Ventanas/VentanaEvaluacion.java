@@ -26,7 +26,6 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
     }
     public void evaluar(Tecnico evaluado, Usuario evaluar){
         tecnico = evaluado;
-        tecnico.setPuntajes(new ArrayList<>());
         usuario = evaluar;
     }
     /**
@@ -84,6 +83,11 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
         });
 
         jBMuyMalo.setText("Muy Mala");
+        jBMuyMalo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBMuyMaloActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("¿Como evalua el desempeño del tecnico?");
 
@@ -189,12 +193,20 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jBRegularActionPerformed
 
     private void jBMaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMaloActionPerformed
-        Evaluacion eva = Evaluacion.REGULAR;
+        Evaluacion eva = Evaluacion.MAL;
         usuario.ingresarEvaluacion(tecnico, eva);
         PerfilTecnico perfilTecnico = new PerfilTecnico(true, usuario , tecnico);
         perfilTecnico.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBMaloActionPerformed
+
+    private void jBMuyMaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMuyMaloActionPerformed
+        Evaluacion eva = Evaluacion.MUYMAL;
+        usuario.ingresarEvaluacion(tecnico, eva);
+        PerfilTecnico perfilTecnico = new PerfilTecnico(true, usuario , tecnico);
+        perfilTecnico.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jBMuyMaloActionPerformed
 
     /**
      * @param args the command line arguments
