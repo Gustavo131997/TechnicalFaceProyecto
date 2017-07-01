@@ -22,7 +22,7 @@ import java.util.StringTokenizer;
  * @author gustavohuerta
  */
 public class GestorArchUsuario {
-        public static void cargarArchivo(TechnicalFace technical){
+        public void cargarArchivo(TechnicalFace technical){
             try{
             RandomAccessFile arch = new RandomAccessFile(manejoArchivoyCarpetas()+File.separator+"usuarios.txt","rw");
                 technical.setUsuarios(new ArrayList<>());

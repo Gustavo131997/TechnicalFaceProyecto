@@ -19,21 +19,21 @@ public class Tecnico extends Usuario {
 		return this.especialidad;
 	}
 
-    public Usuario getEvaluador() {
-        return evaluador;
-    }
+        public Usuario getEvaluador() {
+            return evaluador;
+        }
 
-    public void setEvaluador(Usuario evaluador) {
-        this.evaluador = evaluador;
-    }
+        public void setEvaluador(Usuario evaluador) {
+            this.evaluador = evaluador;
+        }
 
-    public ArrayList<Evaluacion> getPuntajes() {
-        return puntajes;
-    }
+        public ArrayList<Evaluacion> getPuntajes() {
+            return puntajes;
+        }
 
-    public void setPuntajes(ArrayList<Evaluacion> puntajes) {
-        this.puntajes = puntajes;
-    }
+        public void setPuntajes(ArrayList<Evaluacion> puntajes) {
+            this.puntajes = puntajes;
+        }
         
 	/**
 	 * 
@@ -74,7 +74,10 @@ public class Tecnico extends Usuario {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
+        
+        public void añadirEvaluacion(Evaluacion eva){
+            this.puntajes.add(eva);
+        }
 	/**
 	 * 
 	 * @param puntajes
@@ -99,7 +102,10 @@ public class Tecnico extends Usuario {
            this.nivel_confianza = (int)cal1/cal2;
             System.out.println(this.nivel_confianza);
 	}
-  
+        public void cargarPuntajes(){
+            
+            
+        }
   
         public void ingresarNotaConfianza(Evaluacion eva) {
             System.out.println("Nota: "+eva.getNota());
@@ -108,12 +114,24 @@ public class Tecnico extends Usuario {
             System.out.println("Total: "+total);
             calculoNivelConfianza(total);
         }
-
+ 
         @Override
         public String toString() {
             return " "+super.id_persona+ " , "+super.nombre+ " , "+super.ap_paterno+ " , "+super.ap_materno +" , "+super.tipoPerfil+" , "+super.user+ " , "+ super.password+ " , "+super.correo+" , "+super.celular+" , "+super.telefono+" , "+ especialidad + " , " + anoExperencia + " , " + nivel_confianza + " , " + descripcion + " , "+super.dirFotoPerfil;
         }
         
+        public String toStringPuntajes(){
+            String cadena = ""+getId_persona()+" , "+evaluador.getId_persona() ;
+            for (int i = 0; i < this.puntajes.size(); i++) {
+                cadena += "\n "+puntajes.get(i).toString()+";\n";
+            }
+            System.out.println(cadena);
+            return null;
+        }
+        
+        public int cantidadPuntajes(){
+            return this.puntajes.size();
+        }
 }
 
 

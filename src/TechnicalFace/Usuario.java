@@ -1,5 +1,6 @@
 package TechnicalFace;
 
+import Datos.GestorArchPuntajes;
 import java.util.*;
 
 public class Usuario extends Persona {
@@ -75,10 +76,46 @@ public class Usuario extends Persona {
         public void setEvaluados(ArrayList<Tecnico> evaluados) {
             this.evaluados = evaluados;
         }   
-        
+        /**
+         * 
+         * @param tecnico 
+         */
+        public void AñadirEvaluado(Tecnico tecnico){
+            this.evaluados.add(tecnico);
+        }
+        /**
+         * 
+         * @param i : index de posicion dentro del arraylist 
+         * @return  
+         */
+        public Tecnico getEvaluado(int i){
+            return this.evaluados.get(i);
+        }
+        public void cargarTecnicosEvaluados(){
+            GestorArchPuntajes gestor = new GestorArchPuntajes();
+            gestor.cargarPuntajes(this);
+        }
+        /**
+         * 
+         * @param tecnico 
+         * @param puntaje
+         */ 
         public void ingresarEvaluacion(Tecnico tecnico, Evaluacion puntaje){
             tecnico.ingresarNotaConfianza(puntaje);
+            GestorArchPuntajes gestor = new GestorArchPuntajes();
+            gestor.guardarPuntajes(tecnico);
         }
+        
+        public int cantidadTecnicosEvaluados(){
+            return this.evaluados.size();
+        }
+        public void guardarEvaluacion(){
+            
+        }
+        /**
+         * 
+         * @return tipo String 
+         */
         public String toStringDir(){
             return " "+super.id_persona + " , "+super.direccion.toString();
         }

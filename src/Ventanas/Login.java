@@ -158,7 +158,7 @@ public class Login extends javax.swing.JFrame {
             }
             for (int i = 0; i < tec.cantidadRegistroTecnico(); i++) {
                 
-                Tecnico tecn = tec.obtenerRegistroTecnico(i);
+                Tecnico tecn = tec.obtenerRegistroTecnico(i); 
                 if (tecn.getUser().equals(user) && tecn.getPassword().equals(pass)) {
                     return tecn;
                 }

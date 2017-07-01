@@ -39,7 +39,7 @@ public class PerfilTecnico extends javax.swing.JFrame {
         this.customPanel1.UpdateProgress(tec.getNivel_confianza());
         this.jTextField1.setEditable(false);
         this.jTextField2.setEditable(false);
-        this.jTextField3.setEditable(false);   
+        this.jTextField3.setEditable(false);
         this.jTextArea1.setEditable(false);
         
     }
@@ -363,7 +363,7 @@ public class PerfilTecnico extends javax.swing.JFrame {
 
     private void btnToggleEvItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnToggleEvItemStateChanged
       if(evt.getStateChange()==ItemEvent.SELECTED){
-          ContactoTecnico jcont = new ContactoTecnico(tec);
+          ContactoTecnico jcont = new ContactoTecnico(this.tec);
           jcont.setVisible(true);
           jcont.setResizable(false);
           jButton1.setEnabled(true);

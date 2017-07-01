@@ -14,6 +14,7 @@ import java.io.FileWriter;
 import java.io.IOException; 
 import java.io.PrintWriter;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
@@ -21,7 +22,7 @@ import java.util.StringTokenizer;
  * @author gustavohuerta
  */
 public class GestorArchTecnico {
-        public static void cargarTecnicosGuardados(TechnicalFace technical){
+        public void cargarTecnicosGuardados(TechnicalFace technical){
             try{
                 
             RandomAccessFile arch = new RandomAccessFile(manejoArchivoyCarpetas()+File.separator+"tecnicos.txt","rw");
@@ -45,6 +46,8 @@ public class GestorArchTecnico {
                     tecnico.setNivel_confianza(Integer.parseInt(st.nextToken().trim()));
                     tecnico.setDescripcion(st.nextToken().trim());
                     tecnico.setDirFotoPerfil(st.nextToken().trim());
+                    tecnico.setPuntajes(new ArrayList<>());
+                    tecnico.cargarPuntajes();
                     technical.añadirTecnico(tecnico);
                     
             }
