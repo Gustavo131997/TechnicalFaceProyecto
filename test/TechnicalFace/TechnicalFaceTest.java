@@ -265,7 +265,7 @@ public class TechnicalFaceTest {
         System.out.println("a\u00f1adirUsuario");
         Usuario usu = null;
         TechnicalFace instance = new TechnicalFace();
-        instance.añadirUsuario(usu);
+        instance.anadirUsuario(usu);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

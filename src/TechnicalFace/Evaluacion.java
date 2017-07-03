@@ -33,15 +33,21 @@ public enum Evaluacion {
 	}
 
 	public int getNota() {
-		return this.nota;
+            return this.nota;
 	}
 
 	public String getNom_evalua() {
-		return this.nom_evalua;
+            return this.nom_evalua;
 	}
 
 	public String getDesc_evalua() {
-		return this.desc_evalua;
+            return this.desc_evalua;
 	}
+
+        @Override
+        public String toString() {
+            return super.toString() + ';';
+        }
+        
 
 }

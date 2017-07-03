@@ -7,6 +7,7 @@ package Datos;
 
 import Componentes.Mensajes;
 import TechnicalFace.Evaluacion;
+import TechnicalFace.TechnicalFace;
 import TechnicalFace.Tecnico;
 import TechnicalFace.Usuario;
 import java.io.File;
@@ -16,6 +17,8 @@ import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,33 +26,20 @@ import java.util.StringTokenizer;
  */
 public class GestorArchPuntajes {
     
-    public void cargarPuntajes(Usuario usuario){
+    public void cargarPuntajes(Tecnico tecnico){
+        
          try{
             RandomAccessFile arch = new RandomAccessFile(manejoArchivoyCarpetas()+File.separator+"puntajes_"+tecnico.getId_persona()+".txt","r");
-                tecnico.setPuntajes(new ArrayList<>());
+                
                 String linea = null;
                 int cont = 0;
                 while((linea = arch.readLine())!=null){
-                    cont++;
-                    System.out.println(cont);
-                    if (cont == 1) {
-                        System.out.println(cont);
-                        StringTokenizer st = new StringTokenizer(linea, ",");
-                        int id = Integer.parseInt(st.nextToken());
-                        if (id == tecnico.getId_persona()) {
-                            System.out.println("Ok");
-                        }else{
-                            Mensajes.error("Error no se encuentra el id del tecnico");
-                        }
-                        int id2 = Integer.parseInt(st.nextToken());
-                        
-                        
-                    }else if (cont > 1){
-                        System.out.println(cont);
                         StringTokenizer st = new StringTokenizer(linea, ";");
+                    if (!linea.equals("")) {
                         String evaluacion = st.nextToken().trim();
                         Evaluacion ev = null;
                         if (evaluacion.equalsIgnoreCase("MUYBIEN")) {
+                            System.out.println(evaluacion);
                             ev = Evaluacion.MUYBIEN;
                         }else if(evaluacion.equalsIgnoreCase("BIEN")){
                             ev = Evaluacion.BIEN;
@@ -60,8 +50,9 @@ public class GestorArchPuntajes {
                         }else if (evaluacion.equalsIgnoreCase("MUYMAL")) {
                             ev = Evaluacion.MUYMAL;
                         }
-                        tecnico.añadirEvaluacion(ev);
+                        tecnico.anadirEvaluacion(ev);
                     }
+                    
                     
                 }
                 arch.close();
@@ -81,25 +72,35 @@ public class GestorArchPuntajes {
             return null;
         }
     
-    public void guardarPuntajes(Usuario usuario){
+    public void guardarPuntajes(Tecnico tecnico){
             FileWriter fw2;  
              PrintWriter pw2;
             try{
-                fw2 = new FileWriter(manejoArchivoyCarpetas()+File.separator+"usuario"+usuario.getId_persona()+"evaluacion"+".txt");
+                fw2 = new FileWriter(manejoArchivoyCarpetas()+File.separator+"puntajes_"+tecnico.getId_persona()+".txt");
                 pw2 = new PrintWriter(fw2);
                 
-                if (usuario.cantidadTecnicosEvaluados() != 0) {
-                    for (int i = 0; i < usuario.cantidadTecnicosEvaluados(); i++) {
-                        Tecnico tecnico = usuario.getEvaluado(i);
-                        tecnico.setPuntajes(new ArrayList<>());
-                        
-                        pw2.println(tecnico.toString());
+                if (tecnico.cantidadPuntajes() != 0) {
+                    for (int i = 0; i < tecnico.cantidadPuntajes(); i++) {
+                        Evaluacion eva = tecnico.getEvaluacion(i);
+                        pw2.println(eva.toString());
                     }
                 }
                 pw2.close();
-                
+                System.out.println("OK");
             }catch(IOException ex){
                 Mensajes.error("NO SE ENCUENTRA EL ARCHIVO");
             }
+    }
+
+    public void vaciarArch(Tecnico tecnico) {
+        FileWriter fw2;  
+        PrintWriter pw2;
+        try {
+            fw2 = new FileWriter(manejoArchivoyCarpetas()+File.separator+"puntajes_"+tecnico.getId_persona()+".txt");
+            pw2 = new PrintWriter(fw2);
+        } catch (IOException ex) {
+            
+        }
+        
     }
 }

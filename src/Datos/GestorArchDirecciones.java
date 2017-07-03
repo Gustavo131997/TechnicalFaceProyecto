@@ -22,14 +22,14 @@ import java.util.StringTokenizer;
  * @author root
  */
 public class GestorArchDirecciones {
-    public static void cargarDireccionesUsuario(TechnicalFace technical){
+    public void cargarDireccionesUsuario(TechnicalFace technical){
          try{
             RandomAccessFile arch = new RandomAccessFile(manejoArchivoyCarpetas()+File.separator+"DireccionesUsuarios.txt","rw");
 
                 String linea = null;
                 while((linea = arch.readLine())!=null){
                     StringTokenizer st = new StringTokenizer(linea, ",");
-                    Usuario usuario = technical.obtenerRegistroUsuario(Integer.parseInt(st.nextToken().trim()));
+                    Usuario usuario = technical.obtenerRegistroUsuarioId(Integer.parseInt(st.nextToken().trim()));
                     Direccion dir = new Direccion();
                     dir.setRegion(st.nextToken().trim());
                     dir.setProvincia(st.nextToken().trim());
@@ -44,7 +44,7 @@ public class GestorArchDirecciones {
             Mensajes.error("Error al cargar archivo: "+ex.getMessage());
         }
     }
-    public static void cargarDireccionesTecnico(TechnicalFace technical){
+    public void cargarDireccionesTecnico(TechnicalFace technical){
          try{
             RandomAccessFile arch = new RandomAccessFile(manejoArchivoyCarpetas()+File.separator+"Direccionestecnicos.txt","rw");
   
@@ -53,7 +53,7 @@ public class GestorArchDirecciones {
                     StringTokenizer st = new StringTokenizer(linea, ",");
                     String as = st.nextToken().trim();
                     System.out.println("ID"+as);
-                    Tecnico tecnico = technical.obtenerRegistroTecnico(Integer.parseInt(as));
+                    Tecnico tecnico = technical.obtenerRegistroTecnicoId(Integer.parseInt(as));
                     Direccion dir = new Direccion();
                     dir.setRegion(st.nextToken().trim());
                     dir.setProvincia(st.nextToken().trim());
@@ -68,7 +68,7 @@ public class GestorArchDirecciones {
             Mensajes.error("Error al cargar archivo: "+ex.getMessage());
         }
     }
-    public static String manejoArchivoyCarpetas(){
+    public String manejoArchivoyCarpetas(){
             File file = new File("Data"+File.separator+"Registro"+File.separator);
             try{
                 file.mkdirs();
@@ -78,7 +78,7 @@ public class GestorArchDirecciones {
             }
             return null;
         }
-    public static void guardarDireccionTecnico(TechnicalFace technicalFace){
+    public void guardarDireccionTecnico(TechnicalFace technicalFace){
          FileWriter fw2;
              PrintWriter pw2;
             try{
@@ -97,7 +97,7 @@ public class GestorArchDirecciones {
                 Mensajes.error("NO SE ENCUENTRA EL ARCHIVO");
             }
     }
-    public static void guardarDireccionUsuario(TechnicalFace technicalFace){
+    public void guardarDireccionUsuario(TechnicalFace technicalFace){
          FileWriter fw2;
              PrintWriter pw2;
             try{

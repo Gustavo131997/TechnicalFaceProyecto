@@ -41,8 +41,7 @@ public class GestorArchUsuario {
                     usuario.setCelular(st.nextToken().trim());
                     usuario.setTelefono(st.nextToken().trim());
                     usuario.setDirFotoPerfil(st.nextToken().trim());
-                    technical.añadirUsuario(usuario);
-                    
+                    technical.anadirUsuario(usuario); 
             }
                 arch.close();
         }catch(IOException | NumberFormatException ex){
@@ -60,7 +59,7 @@ public class GestorArchUsuario {
             }
             return null;
         }
-     public static void guardar(TechnicalFace technicalFace){
+     public void guardar(TechnicalFace technicalFace){
              FileWriter fw1;
              PrintWriter pw1;
             try{

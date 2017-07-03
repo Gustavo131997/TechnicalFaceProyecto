@@ -27,21 +27,60 @@ public class Administrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jBUsuario = new javax.swing.JButton();
+        jBTecnico = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jBUsuario.setText("Ver Registro Usuario");
+        jBUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBUsuarioActionPerformed(evt);
+            }
+        });
+
+        jBTecnico.setText("Ver Registro Tecnico");
+        jBTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTecnicoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(213, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBUsuario)
+                    .addComponent(jBTecnico))
+                .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(jBUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addComponent(jBTecnico)
+                .addGap(84, 84, 84))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBUsuarioActionPerformed
+        ManipularUsuarios man = new ManipularUsuarios();
+        man.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jBUsuarioActionPerformed
+
+    private void jBTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTecnicoActionPerformed
+        ManipularTecnicos man = new ManipularTecnicos();
+        man.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jBTecnicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +119,7 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBTecnico;
+    private javax.swing.JButton jBUsuario;
     // End of variables declaration//GEN-END:variables
 }

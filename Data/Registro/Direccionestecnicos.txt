@@ -1,2 +1,1 @@
- 0 , ANTOFAGASTA , EL LOA , CALAMA , Uno Oriente , 12 , 12 , 
- 1 , ATACAMA  , CHAÑARAL , CHAÑARAL , Uno Oriente , 678 , 2 , 
+ 0 , VALPARAÍSO  , ISLA DE PASCUA , ISLA DE PASCUA , Uno , 32 , 23 , 

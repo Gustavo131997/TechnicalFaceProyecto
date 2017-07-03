@@ -5,17 +5,31 @@
  */
 package Ventanas;
    
+import Componentes.Mensajes;
+import Componentes.Render;
+import TechnicalFace.TechnicalFace;
+import TechnicalFace.Tecnico;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+
 /**    
  *
  * @author root
  */
 public class ManipularTecnicos extends javax.swing.JFrame {
-
+    
+    DefaultTableModel modeloTabla;
+     TechnicalFace technical = new TechnicalFace();
+    
     /**
      * Creates new form ManipularTecnicos
      */
     public ManipularTecnicos() {
         initComponents();
+        technical.setTecnicos(new ArrayList<>());
+        technical.cargarSistema();
+        this.listarRegistro();
     }
 
     /**
@@ -27,22 +41,121 @@ public class ManipularTecnicos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaBusqueda = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tablaBusqueda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tablaBusqueda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaBusquedaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablaBusqueda);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 483, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tablaBusquedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaBusquedaMouseClicked
+         int column = tablaBusqueda.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/tablaBusqueda.getRowHeight();
+        
+        if(row < tablaBusqueda.getRowCount() && row >= 0 && column < tablaBusqueda.getColumnCount() && column >= 0){
+            Object value = tablaBusqueda.getValueAt(row, column);
+            if(value instanceof JButton){
+                ((JButton)value).doClick();
+                JButton boton = (JButton) value;
+                if(boton.getName().equals("eliminar")){
+                  value = tablaBusqueda.getValueAt(row, 0);
+                  Object value2 = tablaBusqueda.getValueAt(row, 1);
+                  Object value3 = tablaBusqueda.getValueAt(row, 2);
+                  if (value instanceof String && value2 instanceof String && value3 instanceof String) {
+                    String da0 = (String)value;
+                    String da2 = (String)value2;
+                    String da3 = (String)value3;
+                    String da = da0+" "+da2+" "+da3;
+                        for (int i = 0; i < technical.cantidadRegistroTecnico(); i++) {
+                           Tecnico tec = technical.obtenerRegistroTecnico(i);
+                            String da1 =""+tec.getNombre()+" "+tec.getAp_paterno()+" "+tec.getAp_materno();
+                            if (da.equals(da1)) {
+                                int index = Mensajes.confirmar("¿Deseas Realmente Eliminarlo?");
+                                 if (index == 0) {
+                                    technical.eliminar(tec);
+                                    technical.actualizar();
+                                    this.listarRegistro();
+                                }
+                            }    
+                        }
+
+            }
+                
+               }
+            }
+//            
+        }
+    }//GEN-LAST:event_tablaBusquedaMouseClicked
+    
+    private void listarRegistro(){
+        tablaBusqueda.setDefaultRenderer(Object.class, new Render());
+        modeloTabla = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        modeloTabla.addColumn("Nombres");
+        modeloTabla.addColumn("Apellido Paterno");
+        modeloTabla.addColumn("Apellido Materno");
+        modeloTabla.addColumn("Region");
+        modeloTabla.addColumn("Provincia");
+        modeloTabla.addColumn("Comuna");
+        modeloTabla.addColumn("Nivel de\n Confianza");
+        modeloTabla.addColumn("Cantidad de\n Evaluaciones");
+        modeloTabla.addColumn("");
+        JButton eliminar = new JButton("Eliminar");
+        eliminar.setName("eliminar");
+        Object fila[] = new Object[9];
+        for(int i = 0; i < technical.cantidadRegistroTecnico(); i++){
+            Tecnico tec = technical.obtenerRegistroTecnico(i);
+            fila[0] = ""+tec.getNombre();
+            fila[1] = tec.getAp_paterno();
+            fila[2] =  tec.getAp_materno();
+            fila[3] = ""+tec.getDireccion().getRegion();
+            fila[4] = ""+tec.getDireccion().getProvincia();
+            fila[5] = ""+tec.getDireccion().getComuna();
+            fila[6] = ""+tec.getNivel_confianza()+"%";
+            fila[7] = ""+tec.cantidadPuntajes();
+            fila[8] = eliminar;
+            modeloTabla.addRow(fila);
+        }
+        tablaBusqueda.setModel(modeloTabla);
+        tablaBusqueda.setRowHeight(60);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -79,5 +192,7 @@ public class ManipularTecnicos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaBusqueda;
     // End of variables declaration//GEN-END:variables
 }

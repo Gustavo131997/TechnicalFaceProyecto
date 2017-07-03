@@ -5,17 +5,29 @@
  */
 package Ventanas;
 
+import Componentes.Render;
+import TechnicalFace.TechnicalFace;
+import TechnicalFace.Usuario;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+
 /**   
  *     
  * @author Gustavo Huerta
  */
 public class ManipularUsuarios extends javax.swing.JFrame {
-
+    
+    DefaultTableModel modeloTabla;
+     TechnicalFace technical = new TechnicalFace();
     /**
      * Creates new form ManipularListaAmigos_1
      */
     public ManipularUsuarios() {
+        technical.setTecnicos(new ArrayList<>());
+        technical.cargarSistema();
         initComponents();
+        this.listarRegistro();
     }
 
     /**
@@ -27,22 +39,120 @@ public class ManipularUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaBusqueda = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tablaBusqueda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tablaBusqueda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaBusquedaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablaBusqueda);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(113, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tablaBusquedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaBusquedaMouseClicked
+        int column = tablaBusqueda.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/tablaBusqueda.getRowHeight();
+        
+        if(row < tablaBusqueda.getRowCount() && row >= 0 && column < tablaBusqueda.getColumnCount() && column >= 0){
+            Object value = tablaBusqueda.getValueAt(row, column);
+            if(value instanceof JButton){
+                ((JButton)value).doClick();
+                JButton boton = (JButton) value;
+                if(boton.getName().equals("eliminar")){
+                  value = tablaBusqueda.getValueAt(row, 0);
+                  Object value2 = tablaBusqueda.getValueAt(row, 1);
+                  Object value3 = tablaBusqueda.getValueAt(row, 2);
+                  if (value instanceof String && value2 instanceof String && value3 instanceof String) {
+                    String da0 = (String)value;
+                    String da2 = (String)value2;
+                    String da3 = (String)value3;
+                    String da = da0+" "+da2+" "+da3;
+                        for (int i = 0; i < technical.cantidadRegistroUsuario(); i++) {
+                           Usuario usu = technical.obtenerRegistroUsuario(i);
+                            String da1 =""+usu.getNombre()+" "+usu.getAp_paterno()+" "+usu.getAp_materno();
+                            if (da.equals(da1)) {
+                                 technical.eliminar(usu);
+                                 technical.actualizar();
+                                 this.listarRegistro();
+                            }    
+                        }
+
+            }
+                
+               }
+            }
+//            
+        }
+    }//GEN-LAST:event_tablaBusquedaMouseClicked
+    private void listarRegistro(){
+        tablaBusqueda.setDefaultRenderer(Object.class, new Render());
+        modeloTabla = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        modeloTabla.addColumn("Nombres");
+        modeloTabla.addColumn("Apellido Paterno");
+        modeloTabla.addColumn("Apellido Materno");
+        modeloTabla.addColumn("Region");
+        modeloTabla.addColumn("Provincia");
+        modeloTabla.addColumn("Comuna");
+        modeloTabla.addColumn("");
+        modeloTabla.addColumn("");
+        JButton eliminar = new JButton("Eliminar");
+        eliminar.setName("eliminar");
+        JButton ver = new JButton();
+        ver.setName("ver");
+        Object fila[] = new Object[8];
+        for(int i = 0; i < technical.cantidadRegistroUsuario(); i++){
+            Usuario usu = technical.obtenerRegistroUsuario(i);
+            if (usu.getTipoPerfil().equals("Usuario")) {
+            fila[0] = ""+usu.getNombre();
+            fila[1] = usu.getAp_paterno();
+            fila[2] =  usu.getAp_materno();
+            fila[3] = ""+usu.getDireccion().getRegion();
+            fila[4] = ""+usu.getDireccion().getProvincia();
+            fila[5] = ""+usu.getDireccion().getComuna();
+            fila[6] = ver;
+            fila[7] = eliminar;
+            modeloTabla.addRow(fila);
+            }
+            
+        }
+        tablaBusqueda.setModel(modeloTabla);
+        tablaBusqueda.setRowHeight(60);
+    }
     /**
      * @param args the command line arguments
      */
@@ -82,5 +192,7 @@ public class ManipularUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaBusqueda;
     // End of variables declaration//GEN-END:variables
 }

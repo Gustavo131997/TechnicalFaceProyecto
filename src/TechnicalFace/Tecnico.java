@@ -1,5 +1,6 @@
 package TechnicalFace;
 
+import Datos.GestorArchPuntajes;
 import java.util.*;
 
 public class Tecnico extends Usuario {
@@ -75,44 +76,45 @@ public class Tecnico extends Usuario {
 		this.descripcion = descripcion;
 	}
         
-        public void añadirEvaluacion(Evaluacion eva){
+        public void anadirEvaluacion(Evaluacion eva){
             this.puntajes.add(eva);
         }
-	/**
-	 * 
-	 * @param puntajes
-	 */
-	private int sumaTotalEvaluaciones(ArrayList<Evaluacion> puntajes) {
-             int total = 0;
-            for (int i = 0; i < puntajes.size(); i++) {
-                if (puntajes.get(i).getNota() != 0) {
-                    total =+ puntajes.get(i).getNota();
-                }
-            }
-            return total;
-	}
+	
 
 	/**
-	 * 
-	 * @param totalEvaluaciones
-	 */
-	private void calculoNivelConfianza(int totalEvaluaciones) {
-           int cal1 = totalEvaluaciones * 100;
-           int cal2 = puntajes.size()*10;
-           this.nivel_confianza = (int)cal1/cal2;
-            System.out.println(this.nivel_confianza);
-	}
-        public void cargarPuntajes(){
-            
-            
+         * 
+         * @param index
+         * @return 
+         */
+        public Evaluacion getEvaluacion(int index){
+            return this.puntajes.get(index);
         }
-  
+        
+        public void cargarPuntajes(){
+            GestorArchPuntajes gestor = new GestorArchPuntajes();
+            gestor.cargarPuntajes(this);
+        }
+        /**
+         * 
+         * @return nu int que es el calculo 
+         */
+        public int cargarConfianza(){
+            int total = 0;
+            int calculo = 0;
+            if (!this.puntajes.isEmpty()) {
+                for (int i = 0; i < this.cantidadPuntajes(); i++) {
+                Evaluacion eva = this.getEvaluacion(i);
+                total += eva.getNota();
+            }
+            int cal1 = total * 100;
+            int cal2 = this.puntajes.size()*10;
+            calculo = (int)cal1/cal2 ;
+            this.setNivel_confianza(calculo);
+            }
+            return calculo;
+        }
         public void ingresarNotaConfianza(Evaluacion eva) {
-            System.out.println("Nota: "+eva.getNota());
 	    this.puntajes.add(eva);
-            int total = this.sumaTotalEvaluaciones(puntajes);
-            System.out.println("Total: "+total);
-            calculoNivelConfianza(total);
         }
  
         @Override
@@ -125,13 +127,28 @@ public class Tecnico extends Usuario {
             for (int i = 0; i < this.puntajes.size(); i++) {
                 cadena += "\n "+puntajes.get(i).toString()+";\n";
             }
-            System.out.println(cadena);
-            return null;
+            return cadena;
         }
         
         public int cantidadPuntajes(){
             return this.puntajes.size();
         }
+
+        @Override
+        public boolean equals(Object obj) {
+            return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public int hashCode() {
+            return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public void borrarPuntajes() {
+            GestorArchPuntajes gestor = new GestorArchPuntajes();
+            gestor.vaciarArch(this);
+        }
+        
 }
 
 

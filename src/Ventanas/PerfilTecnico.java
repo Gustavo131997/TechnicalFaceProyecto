@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import Componentes.SeleccionarImagen;
 import TechnicalFace.Tecnico;
 import TechnicalFace.Usuario;
 import java.awt.event.ActionEvent;
@@ -26,39 +27,47 @@ public class PerfilTecnico extends javax.swing.JFrame {
      */
     public PerfilTecnico(boolean visible, Usuario usu,  Tecnico tec) {
         this.tec = tec;
+        this.tec.cantidadPuntajes();
         usu1 = usu;   
         initComponents();
         this.btnToggleEv.setVisible(visible);
         this.jButton1.setVisible(visible);
-        this.jButton2.setVisible(visible); 
+        this.botonAtras.setVisible(visible);
         this.menuPrincipal.setVisible(!visible);
         this.jTextField1.setText(tec.getNombre());
         this.jTextField2.setText(tec.getAp_paterno());
         this.jTextField3.setText(tec.getAp_materno());
         this.jTextArea1.setText(tec.getDescripcion());
-        this.customPanel1.UpdateProgress(tec.getNivel_confianza());
+        this.customPanel1.UpdateProgress(tec.cargarConfianza());
         this.jTextField1.setEditable(false);
         this.jTextField2.setEditable(false);
         this.jTextField3.setEditable(false);
         this.jTextArea1.setEditable(false);
+        if (!this.tec.getDirFotoPerfil().equals("0")) {
+            SeleccionarImagen.cargarImagen(this.tec.getDirFotoPerfil(), this.fotoPerfil);
+        }
         
     }
     public PerfilTecnico(boolean visible,  Tecnico tec) {
         this.tec = tec;
+        this.tec.cantidadPuntajes();
         initComponents();
-        this.btnToggleEv.setVisible(!visible);
-        this.jButton1.setVisible(!visible);
-        this.menuPrincipal.setVisible(visible);
+        this.btnToggleEv.setVisible(visible);
+        this.jButton1.setVisible(visible);
+        this.botonAtras.setVisible(visible);
+        this.menuPrincipal.setVisible(!visible);
         this.jTextField1.setText(tec.getNombre());
         this.jTextField2.setText(tec.getAp_paterno());
         this.jTextField3.setText(tec.getAp_materno());
         this.jTextArea1.setText(tec.getDescripcion());
-        this.customPanel1.UpdateProgress(tec.getNivel_confianza());
+        this.customPanel1.UpdateProgress(tec.cargarConfianza());
         this.jTextField1.setEditable(false);
         this.jTextField2.setEditable(false);
         this.jTextField3.setEditable(false);   
         this.jTextArea1.setEditable(false);
-        
+        if (!this.tec.getDirFotoPerfil().equals("0")) {
+            SeleccionarImagen.cargarImagen(this.tec.getDirFotoPerfil(), this.fotoPerfil);
+        }
     }
 
     /**
@@ -71,7 +80,6 @@ public class PerfilTecnico extends javax.swing.JFrame {
     private void initComponents() {
 
         run = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -93,7 +101,8 @@ public class PerfilTecnico extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         titlered = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        botonAtras = new javax.swing.JButton();
+        fotoPerfil = new javax.swing.JLabel();
         menuPrincipal = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -101,19 +110,6 @@ public class PerfilTecnico extends javax.swing.JFrame {
         run.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Foto Perfil"));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 184, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 269, Short.MAX_VALUE)
-        );
 
         jLabel1.setText("Nombre");
 
@@ -280,10 +276,10 @@ public class PerfilTecnico extends javax.swing.JFrame {
         titlered.setFont(new java.awt.Font("GentiumAlt", 1, 48)); // NOI18N
         titlered.setText("TechnicalFace");
 
-        jButton2.setText("Atras");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonAtras.setText("Atras");
+        botonAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonAtrasActionPerformed(evt);
             }
         });
 
@@ -308,16 +304,15 @@ public class PerfilTecnico extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnToggleEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botonAtras)
+                            .addComponent(btnToggleEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(fotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,16 +334,16 @@ public class PerfilTecnico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(titlered)
                 .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
+                        .addGap(11, 11, 11)
+                        .addComponent(fotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
                         .addComponent(btnToggleEv)
-                        .addGap(122, 122, 122)
+                        .addGap(54, 54, 54)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addGap(43, 43, 43)
+                        .addComponent(botonAtras))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
@@ -410,15 +405,16 @@ public class PerfilTecnico extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        EditarPerfilTecnico ventana = new EditarPerfilTecnico();
+        EditarPerfilTecnico ventana = new EditarPerfilTecnico(tec);
         ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+    private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
+        BuscarTecnico buscar = new BuscarTecnico(usu1);
+        buscar.setVisible(true);
         dispose();
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -451,10 +447,11 @@ public class PerfilTecnico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAtras;
     private javax.swing.JToggleButton btnToggleEv;
     private Ventanas.CustomPanel customPanel1;
+    private javax.swing.JLabel fotoPerfil;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -465,7 +462,6 @@ public class PerfilTecnico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

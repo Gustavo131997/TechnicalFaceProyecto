@@ -15,6 +15,7 @@ public class ContactoTecnico extends javax.swing.JFrame {
 
     /**
      * Creates new form ContactoTecnico
+     * @param tec
      */   
     public ContactoTecnico(Tecnico tec) { 
         initComponents();
@@ -23,9 +24,11 @@ public class ContactoTecnico extends javax.swing.JFrame {
         if (tec.getDireccion().getNum_dep().equals("") ) {
            this.txtDireccion.setText(""+tec.getDireccion().getCalle()+" "+tec.getDireccion().getNum_calle()+" , "+tec.getDireccion().getComuna()+" , "+tec.getDireccion().getProvincia()+" , "+tec.getDireccion().getRegion()+".");
         }else{
-            this.txtDireccion.setText(""+tec.getDireccion().getCalle()+" "+tec.getDireccion().getNum_calle()+" Departemento N° "+tec.getDireccion()+" , "+tec.getDireccion().getComuna()+" , "+tec.getDireccion().getProvincia()+" , "+tec.getDireccion().getRegion()+".");
-        }  
-        
+            this.txtDireccion.setText(""+tec.getDireccion().getCalle()+" "+tec.getDireccion().getNum_calle()+" Departemento N° "+tec.getDireccion().getNum_dep()+" , "+tec.getDireccion().getComuna()+" , "+tec.getDireccion().getProvincia()+" , "+tec.getDireccion().getRegion()+".");
+        }
+        this.txtCorreo.setText(tec.getCorreo());
+        this.txtCelular.setText(tec.getCelular());
+        this.txtFono.setText(tec.getTelefono());
     }
 
     /**
@@ -76,13 +79,13 @@ public class ContactoTecnico extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtCelular, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtFono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                        .addComponent(txtCelular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtFono, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

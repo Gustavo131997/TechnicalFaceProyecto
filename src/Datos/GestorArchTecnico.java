@@ -47,8 +47,9 @@ public class GestorArchTecnico {
                     tecnico.setDescripcion(st.nextToken().trim());
                     tecnico.setDirFotoPerfil(st.nextToken().trim());
                     tecnico.setPuntajes(new ArrayList<>());
+                    technical.anadirTecnico(tecnico);
                     tecnico.cargarPuntajes();
-                    technical.añadirTecnico(tecnico);
+                    tecnico.cargarConfianza();
                     
             }
                 arch.close();
@@ -68,7 +69,7 @@ public class GestorArchTecnico {
             }
             return null;
         }
-     public static void guardar(TechnicalFace technicalFace){
+     public void guardar(TechnicalFace technicalFace){
              FileWriter fw2;  
              PrintWriter pw2;
             try{

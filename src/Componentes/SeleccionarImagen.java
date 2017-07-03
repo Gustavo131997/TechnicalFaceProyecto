@@ -12,8 +12,8 @@ public class SeleccionarImagen {
     static JFileChooser dlg;
     static FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de Imagen .jpg", "jpg");
 
-    public static void selccionar(JLabel lblRuta, JLabel lblImagen) {
-        dlg = new JFileChooser(new File("/home/gustavohuerta"));
+    public static void seleccionar(JLabel lblRuta, JLabel lblImagen) {
+        dlg = new JFileChooser(new File("/home/gustavohuerta/"));
         dlg.setFileFilter(filter);
         int opcion = dlg.showOpenDialog(null);
         if (opcion == JFileChooser.APPROVE_OPTION) {
@@ -29,7 +29,7 @@ public class SeleccionarImagen {
         }
     }
     public static void cargarImagen(String ruta, JLabel lblImagen){
-        if (ruta.equals("no tiene foto perfil")) {
+        if (!ruta.equals("0")) {
            ImageIcon icon = new ImageIcon(ruta);
             Image img = icon.getImage();
             Image newImg = img.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), java.awt.Image.SCALE_SMOOTH);

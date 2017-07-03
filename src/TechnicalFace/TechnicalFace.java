@@ -55,7 +55,7 @@ public class TechnicalFace {
     public String getTerminos_condiciones() {
         return terminos_condiciones;
     }
-
+    
     public void setTerminos_condiciones(String terminos_condiciones) {
         this.terminos_condiciones = terminos_condiciones;
     }
@@ -64,8 +64,9 @@ public class TechnicalFace {
        gestorUsu.cargarArchivo(this);
         GestorArchTecnico gestorTec = new GestorArchTecnico();
         gestorTec.cargarTecnicosGuardados(this);
-        GestorArchDirecciones.cargarDireccionesTecnico(this);
-        GestorArchDirecciones.cargarDireccionesUsuario(this);
+        GestorArchDirecciones gestorDir = new GestorArchDirecciones();
+        gestorDir.cargarDireccionesTecnico(this);
+        gestorDir.cargarDireccionesUsuario(this);
     }
     public int obtenerId_personaTecnico(){
         if (this.cantidadRegistroTecnico() != 0) {
@@ -82,6 +83,15 @@ public class TechnicalFace {
         }else{
           return 0;  
         }
+    }
+    public void actualizarTecnico(int index, Tecnico tec){
+        this.tecnicos.set(index, tec);
+    }
+    public boolean verificarUsuario(Usuario usu){
+      return this.usuarios.contains(usu);
+    }
+    public boolean verificarTecnico(Tecnico tec){
+        return this.tecnicos.contains(tec);
     }
     public int obtenerId_personaUsuario(){
         if (this.cantidadRegistroUsuario() != 0) {
@@ -118,15 +128,17 @@ public class TechnicalFace {
     
     public void guardarTecnico(Tecnico tecnico){
         if (!validarExistenciaTecnico(tecnico)) {
-            añadirTecnico(tecnico);
-            GestorArchTecnico.guardar(this);
-            GestorArchDirecciones.guardarDireccionTecnico(this);
+            anadirTecnico(tecnico);
+            GestorArchTecnico gestorTec = new GestorArchTecnico();
+            gestorTec.guardar(this);
+            GestorArchDirecciones gestorDir = new GestorArchDirecciones();
+            gestorDir.guardarDireccionTecnico(this);
         }else{
             Mensajes.informacion("Usted ya se encuentra registrado");
         }
             
     }
-    public void añadirTecnico(Tecnico tecnico){
+    public void anadirTecnico(Tecnico tecnico){
         try{
             if (tecnico != null) {
                 this.tecnicos.add(tecnico);
@@ -139,11 +151,22 @@ public class TechnicalFace {
     private boolean validarExistenciaTecnico(Tecnico tecnico){
         return this.tecnicos.contains(tecnico);
     }
+    public void actualizar(){
+        GestorArchUsuario gestorUsu = new GestorArchUsuario();
+        gestorUsu.guardar(this);
+        GestorArchDirecciones gestorDir = new GestorArchDirecciones();
+        gestorDir.guardarDireccionUsuario(this);
+        GestorArchTecnico gestorTec = new GestorArchTecnico();
+        gestorTec.guardar(this);
+        gestorDir.guardarDireccionTecnico(this);
+    }
     public void guardarUsuario(Usuario usu){
         if (!validarExistenciaUsuario(usu)) {
-            añadirUsuario(usu);
-            GestorArchUsuario.guardar(this);
-            GestorArchDirecciones.guardarDireccionUsuario(this);
+            anadirUsuario(usu);
+            GestorArchUsuario gestorUsu = new GestorArchUsuario();
+            gestorUsu.guardar(this);
+            GestorArchDirecciones gestorDir = new GestorArchDirecciones();
+            gestorDir.guardarDireccionUsuario(this);
         }else{
             Mensajes.informacion("Usted ya se encuentra registrado");
         }
@@ -155,18 +178,36 @@ public class TechnicalFace {
   
     public Usuario obtenerRegistroUsuario(int i) {
         if (i>= 0) {
+            System.out.println(i);
             return this.usuarios.get(i);
         }else{
             return null;
         }
     }
-    
+    public Usuario obtenerRegistroUsuarioId(int id){
+        for (int i = 0; i < this.cantidadRegistroUsuario(); i++) {
+            Usuario usu = this.obtenerRegistroUsuario(i);
+            if (usu.getId_persona() == id) {
+                return usu;
+            }
+        }
+        return null;
+    }
+    public Tecnico obtenerRegistroTecnicoId(int id){
+        for (int i = 0; i < this.cantidadRegistroTecnico(); i++) {
+            Tecnico tec = this.obtenerRegistroTecnico(i);
+            if (tec.getId_persona() == id) {
+                return tec;
+            }
+        }
+        return null;
+    }
 
     private boolean validarExistenciaUsuario(Usuario usu) {
         return this.usuarios.contains(usu);
     }
 
-    public void añadirUsuario(Usuario usu) {
+    public void anadirUsuario(Usuario usu) {
         try{
             if (usu != null) {
                 this.usuarios.add(usu);
@@ -175,5 +216,30 @@ public class TechnicalFace {
             Mensajes.informacion("El arrayList de usuarios no ha sido Instanciado");
         }
     }
-
+    
+    public void eliminar(Object obj) {
+         if (obj instanceof Usuario) {
+            Usuario usu = (Usuario)obj;
+             if (usu instanceof Tecnico) {
+                 Tecnico tec = (Tecnico)usu;
+                 int index = this.tecnicos.indexOf(tec);
+                 if (index != -1) {
+                     tec.borrarPuntajes();
+                     this.tecnicos.remove(index);
+                     
+                 }else{
+                     Mensajes.error("No existe el que quiere eliminar");
+                 }
+             }else{
+                int index = this.usuarios.indexOf(usu);
+                if ( index != -1) {
+                    this.usuarios.remove(index);
+                }else{
+                    Mensajes.error("No existe usuario que quiere eliminar");
+                }
+             }
+             
+        }
+    }
+    
 }

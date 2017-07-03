@@ -45,6 +45,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         technicalFace.cargarSistema();
         initComponents();
         CargarComboBox.cargar(cBoxRegion, "SELECT * FROM Regiones");
+        
     }
 
     /**
@@ -110,6 +111,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel22 = new javax.swing.JLabel();
         ruta = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -132,6 +134,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         });
 
         jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.setEnabled(false);
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarActionPerformed(evt);
@@ -226,7 +229,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFonoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -361,7 +364,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Especialidad:");
 
-        jComboBoxEsp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Informatica", "Gasfiter", "Enfermeria", "Metalicos" }));
+        jComboBoxEsp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione.." , "Informatica", "Gasfiter", "Enfermeria", "Metalicos", "Otra" }));
 
         jLabel11.setText("Comentario:");
 
@@ -524,10 +527,28 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
         ruta.setVisible(false);
 
+        jButton1.setText("Atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jCheckBox1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel22)
+                        .addGap(389, 389, 389))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonRegistrar)
+                        .addGap(471, 471, 471))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -551,19 +572,11 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                         .addGap(349, 349, 349)
                         .addComponent(jLabel1)
                         .addGap(4, 4, 4)
-                        .addComponent(jComboBoxRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBoxRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jButton1)))
                 .addContainerGap(41, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jCheckBox1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel22)
-                        .addGap(389, 389, 389))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonRegistrar)
-                        .addGap(471, 471, 471))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -573,14 +586,6 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jComboBoxRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ruta)
-                        .addGap(416, 416, 416))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -598,7 +603,19 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                             .addComponent(jLabel22))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonRegistrar)
-                        .addGap(0, 95, Short.MAX_VALUE))))
+                        .addGap(0, 95, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ruta)
+                                .addGap(367, 367, 367)))
+                        .addComponent(jButton1)
+                        .addGap(24, 24, 24))))
         );
 
         setSize(new java.awt.Dimension(1069, 741));
@@ -646,7 +663,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                 if (validarContrasena() && validarEmail()) {
                     if (validarCampos.validarFormtCorreo(txtCorreo1.getText())) {
                         if (!ruta.getText().equals("")) {
-                            tecnico.setDirFotoPerfil(GuardarImagenes.saveImage(ruta.getText()));
+                            tecnico.setDirFotoPerfil(GuardarImagenes.saveImage(tecnico , ruta.getText()));
                         }else{
                             tecnico.setDirFotoPerfil("no tiene foto perfil");
                         }
@@ -711,11 +728,13 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                 if (this.validarContrasena() && this.validarEmail()){
                     if (validarCampos.validarFormtCorreo(this.txtCorreo2.getText())) {
                         if (!ruta.getText().equals("")) {
-                            usuario.setDirFotoPerfil(GuardarImagenes.saveImage(ruta.getText()));
+                            usuario.setDirFotoPerfil(GuardarImagenes.saveImage(usuario, ruta.getText()));
                         }else{
-                            usuario.setDirFotoPerfil("no tiene foto perfil");
+                            usuario.setDirFotoPerfil("0");
                         }
-                        technicalFace.guardarUsuario(usuario);
+                        if (true) {
+                            technicalFace.guardarUsuario(usuario);
+                        }
                     }else{ 
                         Mensajes.error("Error! En el formato del correo");
                     }
@@ -783,7 +802,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     }
     private void lblFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFotoMouseClicked
         
-        SeleccionarImagen.selccionar(this.ruta, lblFoto);
+        SeleccionarImagen.seleccionar(this.ruta, lblFoto);
     }//GEN-LAST:event_lblFotoMouseClicked
 
     private void jComboBoxRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRegistrarActionPerformed
@@ -850,13 +869,23 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_cBoxProvinciaActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
+        if (this.jCheckBox1.isSelected()) {
+            this.jButtonRegistrar.setEnabled(true);
+        }else{
+            this.jButtonRegistrar.setEnabled(false);
+        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jTextFieldCalleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCalleKeyPressed
         validarCampos.cantCaracteres(jTextFieldCalle, 20);
         validarCampos.soloLetras(jTextFieldCalle);
     }//GEN-LAST:event_jTextFieldCalleKeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Inicio inicio = new Inicio();
+        inicio.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -892,6 +921,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cBoxComuna;
     private javax.swing.JComboBox<String> cBoxProvincia;
     private javax.swing.JComboBox<String> cBoxRegion;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
