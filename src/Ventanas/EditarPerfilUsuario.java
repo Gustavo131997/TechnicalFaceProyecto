@@ -11,26 +11,22 @@ import Componentes.GuardarImagenes;
 import Componentes.Mensajes;
 import Componentes.SeleccionarImagen;
 import Componentes.validarCampos;
-import TechnicalFace.Direccion;
 import TechnicalFace.TechnicalFace;
-import TechnicalFace.Tecnico;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import TechnicalFace.Usuario;
    
 /**
  *
  * @author Gustavo Huerta
  */
-public class EditarPerfilTecnico extends javax.swing.JFrame {
+public class EditarPerfilUsuario extends javax.swing.JFrame {
     TechnicalFace technical;
-    Tecnico tec;
-    int index= 0;
+    Usuario usu;
+    int index;
     /**
      * Creates new form ListaAmigosUsuario_1
      * @param tecnico
      */
-    public EditarPerfilTecnico(Tecnico tecnico) {
+    public EditarPerfilUsuario(Usuario tecnico) {
         this.setTitle("Editar Perfil");
         initComponents();
         CargarComboBox.cargar(cBoxRegion, "SELECT * FROM Regiones");
@@ -67,29 +63,15 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                 break;
             }
         }
-        for (int i = 0; i < this.jCBEspecialidad.getItemCount(); i++) {
-           this.jCBEspecialidad.setSelectedIndex(i);
-           String c = this.jCBEspecialidad.getSelectedItem().toString();
-           if (c.trim().equals(tecnico.getEspecialidad().trim())) {
-                break;
-            }
-        }
-        for (int i = 0; i < this.jCBoxExp.getItemCount(); i++) {
-           this.jCBoxExp.setSelectedIndex(i);
-           String c = this.jCBoxExp.getSelectedItem().toString();
-           if (c.trim().equals(tecnico.getAnoExperencia().trim())) {
-                break;
-            }
-        }
-        this.jTextArea1.setText(tecnico.getDescripcion());
+        
         if (!tecnico.getDirFotoPerfil().equals("0")) {
             SeleccionarImagen.cargarImagen(tecnico.getDirFotoPerfil(), this.lblFoto);
         }
-        index = technical.obtenerPosTecnico(tecnico);
-        if (index == -1) {
-            Mensajes.error("No se encuentra el tecnico a modificar");
+        index = technical.obtenerPosUsuario(tecnico);
+        if (index == -1 ) {
+            Mensajes.error("El usuario que quiere modificar no existe");
         }
-        this.tec = tecnico;
+        usu = tecnico;
     }
     
     /**
@@ -104,7 +86,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         ruta = new javax.swing.JLabel();
         lblFoto = new javax.swing.JLabel();
         panelGeneral = new javax.swing.JPanel();
-        jCheckBoxDatos = new javax.swing.JCheckBox();
+        jCheckBox1 = new javax.swing.JCheckBox();
         panelPersonal = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNombres = new javax.swing.JTextField();
@@ -118,14 +100,6 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         txtApMaterno = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jCFono = new javax.swing.JComboBox<>();
-        jPanelInPro = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jCBEspecialidad = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel24 = new javax.swing.JLabel();
-        jCBoxExp = new javax.swing.JComboBox<>();
         jCheckBox2 = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         cBoxRegion = new javax.swing.JComboBox<>();
@@ -154,8 +128,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         txtPass2 = new javax.swing.JPasswordField();
         jLabel25 = new javax.swing.JLabel();
-        jCheckBoxCorreo = new javax.swing.JCheckBox();
-        jCheckBoxInfo = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jCheckBox6 = new javax.swing.JCheckBox();
         jButton2 = new javax.swing.JButton();
@@ -176,10 +149,10 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
             }
         });
 
-        jCheckBoxDatos.setText("Configurar Datos Personales");
-        jCheckBoxDatos.addChangeListener(new javax.swing.event.ChangeListener() {
+        jCheckBox1.setText("Configurar Datos Personales");
+        jCheckBox1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jCheckBoxDatosStateChanged(evt);
+                jCheckBox1StateChanged(evt);
             }
         });
 
@@ -304,66 +277,6 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         );
 
         txtNombres.setEnabled(false);
-
-        jPanelInPro.setBorder(javax.swing.BorderFactory.createTitledBorder("Información Profesional"));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Especialidad:");
-
-        jCBEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione.." , "Informatica", "Gasfiter", "Enfermeria", "Metalicos", "Otra" }));
-        jCBEspecialidad.setEnabled(false);
-
-        jLabel11.setText("Comentario:");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setEnabled(false);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jLabel24.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel24.setText("Años de Experencia:");
-
-        jCBoxExp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 - 1 años", "1 - 2 años", "3 - 5 años", "mas de 5 años"}));
-        jCBoxExp.setEnabled(false);
-
-        javax.swing.GroupLayout jPanelInProLayout = new javax.swing.GroupLayout(jPanelInPro);
-        jPanelInPro.setLayout(jPanelInProLayout);
-        jPanelInProLayout.setHorizontalGroup(
-            jPanelInProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInProLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(jPanelInProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelInProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelInProLayout.createSequentialGroup()
-                        .addComponent(jCBEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel11))
-                    .addComponent(jCBoxExp, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
-        jPanelInProLayout.setVerticalGroup(
-            jPanelInProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInProLayout.createSequentialGroup()
-                .addGroup(jPanelInProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(jPanelInProLayout.createSequentialGroup()
-                        .addGroup(jPanelInProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addGroup(jPanelInProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jCBEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelInProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCBoxExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel24))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
 
         jCheckBox2.setText("Configurar Direccion");
         jCheckBox2.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -586,22 +499,15 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                 .addGap(51, 51, 51))
         );
 
-        jCheckBoxCorreo.setText("Configurar Correo Electronico");
-        jCheckBoxCorreo.addChangeListener(new javax.swing.event.ChangeListener() {
+        jCheckBox4.setText("Configurar Correo Electronico");
+        jCheckBox4.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jCheckBoxCorreoStateChanged(evt);
+                jCheckBox4StateChanged(evt);
             }
         });
-        jCheckBoxCorreo.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxCorreoActionPerformed(evt);
-            }
-        });
-
-        jCheckBoxInfo.setText("Configurar Información Personal");
-        jCheckBoxInfo.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jCheckBoxInfoStateChanged(evt);
+                jCheckBox4ActionPerformed(evt);
             }
         });
 
@@ -612,10 +518,8 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
             .addGroup(panelGeneralLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jCheckBoxDatos)
+                    .addComponent(jCheckBox1)
                     .addComponent(jCheckBox2)
-                    .addComponent(jCheckBoxInfo)
-                    .addComponent(jPanelInPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelGeneralLayout.createSequentialGroup()
@@ -626,7 +530,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCheckBoxCorreo)
+                                .addComponent(jCheckBox4)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGeneralLayout.createSequentialGroup()
                                     .addGap(0, 0, Short.MAX_VALUE)
                                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -637,7 +541,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
             panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGeneralLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCheckBoxDatos)
+                .addComponent(jCheckBox1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -647,16 +551,12 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckConfi)
-                    .addComponent(jCheckBoxCorreo))
+                    .addComponent(jCheckBox4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(jCheckBoxInfo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelInPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(196, 196, 196))
         );
 
         jButton1.setText("Guardar Cambios");
@@ -681,42 +581,44 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(38, 38, 38)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ruta, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jButton1))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jCheckBox6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ruta, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jCheckBox6)))
+                        .addGap(24, 24, 24)
+                        .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton2)))
-                .addGap(24, 24, 24)
-                .addComponent(panelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(26, 26, 26))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(341, 341, 341))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jCheckBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(ruta, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(206, 206, 206)
-                        .addComponent(jButton1)
-                        .addGap(65, 65, 65)
-                        .addComponent(jButton2))
-                    .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 59, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jCheckBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(ruta, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(296, 296, 296)
+                .addComponent(jButton2)
+                .addGap(0, 77, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -774,9 +676,9 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cBoxProvinciaActionPerformed
 
-    private void jCheckBoxDatosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBoxDatosStateChanged
+    private void jCheckBox1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBox1StateChanged
         boolean enabled = true;
-        if (this.jCheckBoxDatos.isSelected()) {
+        if (this.jCheckBox1.isSelected()) {
             this.panelPersonal.setEnabled(enabled);
             this.txtNombres.setEnabled(enabled);
             this.txtApPaterno.setEnabled(enabled);
@@ -784,7 +686,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
             this.txtCelular.setEnabled(enabled);
             this.txtFonoFijo.setEnabled(enabled);
             this.jCFono.setEnabled(enabled);
-        }else if (!this.jCheckBoxDatos.isSelected()) {
+        }else if (!this.jCheckBox1.isSelected()) {
             this.panelPersonal.setEnabled(!enabled);
             this.txtNombres.setEnabled(!enabled);
             this.txtApPaterno.setEnabled(!enabled);
@@ -793,7 +695,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
             this.txtFonoFijo.setEnabled(!enabled);
             this.jCFono.setEnabled(!enabled);
         }
-    }//GEN-LAST:event_jCheckBoxDatosStateChanged
+    }//GEN-LAST:event_jCheckBox1StateChanged
 
     private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
         
@@ -843,13 +745,13 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckConfiStateChanged
 
-    private void jCheckBoxCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxCorreoActionPerformed
+    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxCorreoActionPerformed
+    }//GEN-LAST:event_jCheckBox4ActionPerformed
 
-    private void jCheckBoxCorreoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBoxCorreoStateChanged
+    private void jCheckBox4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBox4StateChanged
         boolean enabled = true;
-        if (this.jCheckBoxCorreo.isSelected()) {
+        if (this.jCheckBox4.isSelected()) {
             this.jPanel5.setEnabled(enabled);
             this.txtCorreo1.setEnabled(enabled);
             this.txtCorreo2.setEnabled(enabled);
@@ -858,91 +760,15 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
             this.txtCorreo1.setEnabled(!enabled);
             this.txtCorreo2.setEnabled(!enabled);
         }
-    }//GEN-LAST:event_jCheckBoxCorreoStateChanged
-
-    private void jCheckBoxInfoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBoxInfoStateChanged
-        boolean enabled = true;
-        if (this.jCheckBoxInfo.isSelected()) {
-            this.jPanelInPro.setEnabled(enabled);
-            this.jCBEspecialidad.setEnabled(enabled);
-            this.jCBoxExp.setEnabled(enabled);
-            this.jTextArea1.setEnabled(enabled);
-        }else{
-            this.jPanelInPro.setEnabled(!enabled);
-            this.jCBEspecialidad.setEnabled(!enabled);
-            this.jCBoxExp.setEnabled(!enabled);
-            this.jTextArea1.setEnabled(!enabled);
-        }
-    }//GEN-LAST:event_jCheckBoxInfoStateChanged
+    }//GEN-LAST:event_jCheckBox4StateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (this.jCheckBoxDatos.isSelected() || this.jCheckBox2.isSelected() ||
-            this.jCheckConfi.isSelected() || this.jCheckBoxCorreo.isSelected() ||
-            this.jCheckBoxInfo.isSelected() || this.jCheckBox6.isSelected()) {
+        if (this.jCheckBox1.isSelected() || this.jCheckBox2.isSelected() ||
+            this.jCheckConfi.isSelected() || this.jCheckBox4.isSelected() ||
+    this.jCheckBox6.isSelected()) {
             
-            if (this.jCheckBoxDatos.isSelected()) {
-                tec.setNombre(this.txtNombres.getText());
-                tec.setAp_materno(this.txtApMaterno.getText());
-                tec.setAp_paterno(this.txtApPaterno.getText());
-                tec.setCelular(this.txtCelular.getText());
-                tec.setTelefono(this.txtFonoFijo.getText());
-            }
-            if (this.jCheckBox2.isSelected()) {
-                tec.setDireccion(new Direccion());
-                tec.setDirFotoPerfil(""+ruta.getText());
-                tec.getDireccion().setRegion(this.cBoxRegion.getSelectedItem().toString());
-                tec.getDireccion().setComuna(this.cBoxComuna.getSelectedItem().toString());
-                tec.getDireccion().setProvincia(this.cBoxProvincia.getSelectedItem().toString());
-                tec.getDireccion().setCalle(this.txtCalle.getText());
-                tec.getDireccion().setNum_calle(this.txtNumCalle.getText());
-                tec.getDireccion().setNum_dep(this.txtNDepar.getText());
-            }
-            if (this.jCheckConfi.isSelected()) {
-                tec.setUser(this.txtUser.getText());
-                tec.setPassword(EncryptionMD5.getStringMessageDigest(txtPass1.getText(),EncryptionMD5.MD5));
-            }
-            if (this.jCheckBoxCorreo.isSelected()) {
-                tec.setCorreo(txtCorreo1.getText());
-            }
-            if (this.jCheckBoxInfo.isSelected()) {
-                tec.setEspecialidad(this.jCBEspecialidad.getSelectedItem().toString());
-                tec.setAnoExperencia(this.jCBoxExp.getSelectedItem().toString());
-                tec.setDescripcion(this.jTextArea1.getText());
-            }
-            if (validarCamposObligatoriosTecnicos().equals("Ingrese los siguientes campos:\n")) {
-                if (validarContrasena() && validarEmail()) {
-                    if (validarCampos.validarFormtCorreo(txtCorreo1.getText())) {
-                        if (this.jCheckBox6.isSelected()) {
-                            if (!ruta.getText().equals("")) {
-                                tec.setDirFotoPerfil(GuardarImagenes.saveImage(tec , ruta.getText()));
-                            }else{
-                                tec.setDirFotoPerfil("no tiene foto perfil");
-                            }
-                        }
-                        technical.actualizarTecnico(index, tec);
-                        technical.guardarTecnico(tec);
-                        
-                        Mensajes.informacion("Modificacion correcta");
-                        Login login = new Login(tec);
-                        login.setVisible(true);
-                        dispose();
-                    }else{
-                        Mensajes.error("Error! En el formato del correo");
-                    }    
-     
-                }else{
-                    Mensajes.informacion("Las contraseñas o correos no son iguales");
-                }
-                
-            }else{
-                Mensajes.error(validarCamposObligatoriosTecnicos());
-            }
-        
             
-        }else{
-            Mensajes.informacion("Seleccione cualquier checkBox para modificar");
-        }
-            
+        }     
     }//GEN-LAST:event_jButton1ActionPerformed
     public String validarCamposObligatoriosUsuario(){
         String informe = "Ingrese los siguientes campos:\n";
@@ -990,13 +816,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
     private boolean validarEmail() {
         return validarCampos.validarCorreo(this.txtCorreo1.getText(),this.txtCorreo2.getText());
     }
-    public String validarCamposObligatoriosTecnicos(){
-        String informe = validarCamposObligatoriosUsuario();
-        if (this.jCBEspecialidad.getSelectedIndex() == 0) {
-            informe += "\tSeleccione su especialidad\n";
-        }
-        return informe;
-    }
+  
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1005,17 +825,13 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cBoxRegion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jCBEspecialidad;
-    private javax.swing.JComboBox<String> jCBoxExp;
     private javax.swing.JComboBox<String> jCFono;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBoxCorreo;
-    private javax.swing.JCheckBox jCheckBoxDatos;
-    private javax.swing.JCheckBox jCheckBoxInfo;
     private javax.swing.JCheckBox jCheckConfi;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1026,7 +842,6 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1034,13 +849,9 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanelInPro;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     public javax.swing.JLabel lblFoto;
     private javax.swing.JPanel panelGeneral;
     private javax.swing.JPanel panelPersonal;

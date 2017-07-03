@@ -11,6 +11,7 @@ import TechnicalFace.TechnicalFace;
 import TechnicalFace.Tecnico;
 import TechnicalFace.Usuario;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,7 +35,7 @@ public class GestorArchPuntajes {
                 String linea = null;
                 int cont = 0;
                 while((linea = arch.readLine())!=null){
-                        StringTokenizer st = new StringTokenizer(linea, ";");
+                        StringTokenizer st = new StringTokenizer(linea, ",");
                     if (!linea.equals("")) {
                         String evaluacion = st.nextToken().trim();
                         Evaluacion ev = null;
@@ -50,6 +51,7 @@ public class GestorArchPuntajes {
                         }else if (evaluacion.equalsIgnoreCase("MUYMAL")) {
                             ev = Evaluacion.MUYMAL;
                         }
+                        ev.setFechaEvaluacion(st.nextToken()); 
                         tecnico.anadirEvaluacion(ev);
                     }
                     
@@ -102,5 +104,54 @@ public class GestorArchPuntajes {
             
         }
         
+    }
+    public void cargarTecnicosEvaluados(Usuario usu){
+        
+    }
+    public void guardarTecnicosEvaluados(Usuario usu){
+        FileWriter fw2;  
+             PrintWriter pw2;
+            try{
+                fw2 = new FileWriter(manejoArchivoyCarpetas()+File.separator+"usuario_"+usu.getId_persona()+".txt");
+                pw2 = new PrintWriter(fw2);
+                
+                if (usu.cantidadTecnicoEvaluado() != 0) {
+                    for (int i = 0; i < 4; i++) {
+                        Tecnico eva = usu.getEvaluado(i);
+                        pw2.println(eva.getId_persona()+" , "+eva.getEspecialidad());
+                    }
+                }
+                pw2.close();
+                System.out.println("OK");
+            }catch(IOException ex){
+                Mensajes.error("NO SE ENCUENTRA EL ARCHIVO");
+            }
+    }
+    /**
+     * 
+     * @param ev
+     */
+    public void guardarDatos(Evaluacion ev){
+        try {
+            File file = new File(this.manejoArchivoyCarpetas()+File.separator+"evaluaciones.txt");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            RandomAccessFile arch = new RandomAccessFile(file,"rw");
+            String linea = null;
+            String cadena = "";
+            while((linea = arch.readLine()) != null){
+                cadena += linea+"\n";
+            }
+            arch.close();
+            PrintWriter pw = new PrintWriter(file);
+            pw.println(cadena);
+            pw.println(ev.getId_tecnico()+","+ev.getId_usuario()+","+ev.getFechaEvaluacion());
+            pw.close();
+        } catch (FileNotFoundException ex) {
+            
+        } catch (IOException ex) {
+            
+        }
     }
 }

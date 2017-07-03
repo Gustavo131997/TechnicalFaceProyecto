@@ -11,6 +11,7 @@ public class Tecnico extends Usuario {
 	private String anoExperencia;
 	private int nivel_confianza;
 	private String descripcion;
+        
    
         public Tecnico() {
             super.tipoPerfil = "Tecnico";
@@ -89,6 +90,10 @@ public class Tecnico extends Usuario {
         public Evaluacion getEvaluacion(int index){
             return this.puntajes.get(index);
         }
+
+        
+        
+        
         
         public void cargarPuntajes(){
             GestorArchPuntajes gestor = new GestorArchPuntajes();

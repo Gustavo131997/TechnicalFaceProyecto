@@ -154,7 +154,7 @@ public class Login extends javax.swing.JFrame {
                     dispose();
                 }
                 if(usu.getTipoPerfil().equals("admin")){
-                    Administrador admin = new Administrador();
+                    Administrador admin = new Administrador(usu);
                     admin.setVisible(true);
                     dispose();
                 }

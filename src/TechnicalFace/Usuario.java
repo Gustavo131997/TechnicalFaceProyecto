@@ -6,7 +6,6 @@ import java.util.*;
 public class Usuario extends Persona {
 
     ArrayList<Tecnico> evaluados;
-
     protected String tipoPerfil;
     protected String user;
     protected String password;
@@ -97,7 +96,7 @@ public class Usuario extends Persona {
 
     public void cargarTecnicosEvaluados() {
         GestorArchPuntajes gestor = new GestorArchPuntajes();
-
+        gestor.cargarTecnicosEvaluados(this);
     }
 
     /**
@@ -162,6 +161,10 @@ public class Usuario extends Persona {
             return false;
         }
         return true;
+    }
+
+    public int cantidadTecnicoEvaluado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

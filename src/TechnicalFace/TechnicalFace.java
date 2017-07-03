@@ -78,14 +78,22 @@ public class TechnicalFace {
                 cod[i] = cod1;
             }
             Arrays.sort(cod);
-////            burbuja(cod);
             return cod[cod.length-1]+1;
         }else{
           return 0;  
         }
     }
+    public int obtenerPosTecnico(Tecnico tec){
+        return this.tecnicos.indexOf(tec);
+    }
     public void actualizarTecnico(int index, Tecnico tec){
         this.tecnicos.set(index, tec);
+    }
+     public int obtenerPosUsuario(Usuario usu){
+        return this.usuarios.indexOf(usu);
+    }
+    public void actualizarUsuario(int index, Usuario usu){
+        this.usuarios.set(index, usu);
     }
     public boolean verificarUsuario(Usuario usu){
       return this.usuarios.contains(usu);
@@ -103,22 +111,12 @@ public class TechnicalFace {
                 cod[i] = cod1;
             }
             Arrays.sort(cod);
-////            burbuja(cod);
             return cod[cod.length-1]+1;
         }else{
           return 0;  
         }
     }
-    private void burbuja(int [] a){
-         int i, j, aux;
-         for(i=0;i<a.length-1;i++)
-              for(j=0;j<a.length-i-1;j++)
-                   if(a[j+1]<a[j]){
-                      aux=a[j+1];
-                      a[j+1]=a[j];
-                      a[j]=aux;
-                   }
-    }
+    
     public Tecnico obtenerRegistroTecnico(int i) {
         if (i>= 0) {
             return this.tecnicos.get(i);

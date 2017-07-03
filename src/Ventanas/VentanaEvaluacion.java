@@ -8,7 +8,9 @@ package Ventanas;
 import TechnicalFace.Evaluacion;
 import TechnicalFace.Tecnico;
 import TechnicalFace.Usuario;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
    
 /**
  *
@@ -170,14 +172,34 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
    
     private void jBMuyBuenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMuyBuenoActionPerformed
         Evaluacion eva = Evaluacion.MUYBIEN;
+        eva.setFechaEvaluacion(this.getFechaActual()+","+this.getHoraActual());
+        eva.setId_tecnico(""+tecnico.getId_persona());
+        eva.setId_usuario(""+usuario.getId_persona());
+        eva.guardarDatosEvaluacion();
         usuario.ingresarEvaluacion(tecnico, eva);
         PerfilTecnico perfilTecnico = new PerfilTecnico(true,usuario, tecnico);
         perfilTecnico.setVisible(true);
         dispose();   
     }//GEN-LAST:event_jBMuyBuenoActionPerformed
+    public String getFechaActual() {
+        Date ahora = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
+        return formateador.format(ahora);
+    }
 
+    //Metodo usado para obtener la hora actual del sistema
+    //@return Retorna un <b>STRING</b> con la hora actual formato "hh:mm:ss"
+    public String getHoraActual() {
+        Date ahora = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("hh:mm:ss aa");
+        return formateador.format(ahora);
+    }
     private void jBBuenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuenoActionPerformed
         Evaluacion eva = Evaluacion.BIEN;
+        eva.setFechaEvaluacion(this.getFechaActual()+","+this.getHoraActual());
+        eva.setId_tecnico(""+tecnico.getId_persona());
+        eva.setId_usuario(""+usuario.getId_persona());
+        eva.guardarDatosEvaluacion();
         usuario.ingresarEvaluacion(tecnico, eva);
         PerfilTecnico perfilTecnico = new PerfilTecnico(true, usuario , tecnico);
         perfilTecnico.setVisible(true);
@@ -185,7 +207,11 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jBBuenoActionPerformed
 
     private void jBRegularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegularActionPerformed
-        Evaluacion eva = Evaluacion.REGULAR;  
+        Evaluacion eva = Evaluacion.REGULAR;
+        eva.setFechaEvaluacion(this.getFechaActual()+","+this.getHoraActual());
+        eva.setId_tecnico(""+tecnico.getId_persona());
+        eva.setId_usuario(""+usuario.getId_persona());
+        eva.guardarDatosEvaluacion();
         usuario.ingresarEvaluacion(tecnico, eva);
         PerfilTecnico perfilTecnico = new PerfilTecnico(true, usuario , tecnico);
         perfilTecnico.setVisible(true);    
@@ -194,6 +220,10 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
 
     private void jBMaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMaloActionPerformed
         Evaluacion eva = Evaluacion.MAL;
+        eva.setFechaEvaluacion(this.getFechaActual()+","+this.getHoraActual());
+        eva.setId_tecnico(""+tecnico.getId_persona());
+        eva.setId_usuario(""+usuario.getId_persona());
+        eva.guardarDatosEvaluacion();
         usuario.ingresarEvaluacion(tecnico, eva);
         PerfilTecnico perfilTecnico = new PerfilTecnico(true, usuario , tecnico);
         perfilTecnico.setVisible(true);
@@ -202,6 +232,10 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
 
     private void jBMuyMaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMuyMaloActionPerformed
         Evaluacion eva = Evaluacion.MUYMAL;
+        eva.setFechaEvaluacion(this.getFechaActual()+","+this.getHoraActual());
+        eva.setId_tecnico(""+tecnico.getId_persona());
+        eva.setId_usuario(""+usuario.getId_persona());
+        eva.guardarDatosEvaluacion();
         usuario.ingresarEvaluacion(tecnico, eva);
         PerfilTecnico perfilTecnico = new PerfilTecnico(true, usuario , tecnico);
         perfilTecnico.setVisible(true);
