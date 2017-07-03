@@ -49,7 +49,7 @@ public class GestorArchTecnico {
                     tecnico.setPuntajes(new ArrayList<>());
                     technical.anadirTecnico(tecnico);
                     tecnico.cargarPuntajes();
-                    tecnico.cargarConfianza();
+                    tecnico.calculoConfianza();
                     
             }
                 arch.close();

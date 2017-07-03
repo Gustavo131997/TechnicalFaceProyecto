@@ -38,7 +38,7 @@ public class PerfilTecnico extends javax.swing.JFrame {
         this.jTextField2.setText(tec.getAp_paterno());
         this.jTextField3.setText(tec.getAp_materno());
         this.jTextArea1.setText(tec.getDescripcion());
-        this.customPanel1.UpdateProgress(tec.cargarConfianza());
+        this.customPanel1.UpdateProgress(tec.calculoConfianza());
         this.jTextField1.setEditable(false);
         this.jTextField2.setEditable(false);
         this.jTextField3.setEditable(false);
@@ -60,7 +60,7 @@ public class PerfilTecnico extends javax.swing.JFrame {
         this.jTextField2.setText(tec.getAp_paterno());
         this.jTextField3.setText(tec.getAp_materno());
         this.jTextArea1.setText(tec.getDescripcion());
-        this.customPanel1.UpdateProgress(tec.cargarConfianza());
+        this.customPanel1.UpdateProgress(tec.calculoConfianza());
         this.jTextField1.setEditable(false);
         this.jTextField2.setEditable(false);
         this.jTextField3.setEditable(false);   

@@ -98,7 +98,7 @@ public class Tecnico extends Usuario {
          * 
          * @return nu int que es el calculo 
          */
-        public int cargarConfianza(){
+        public int calculoConfianza(){
             int total = 0;
             int calculo = 0;
             if (!this.puntajes.isEmpty()) {
