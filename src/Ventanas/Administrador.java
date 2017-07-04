@@ -16,7 +16,7 @@ public class Administrador extends javax.swing.JFrame {
     Usuario administrador;
     /**
      * Creates new form Administrador_1
-     * @param admin
+     * @param admin es el Usuario administrador de la red social
      */
     public Administrador(Usuario admin) {
         initComponents();
@@ -184,6 +184,11 @@ public class Administrador extends javax.swing.JFrame {
         jLabel22.setText("Correo:");
 
         jButton1.setText("Ver Evaluaciones");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cerrar Sesion");
 
@@ -309,6 +314,12 @@ public class Administrador extends javax.swing.JFrame {
         EditarPerfilUsuario editar = new EditarPerfilUsuario(this.administrador);
         editar.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        VerEvaluaciones ver = new VerEvaluaciones(this.administrador);
+        ver.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

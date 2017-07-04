@@ -24,7 +24,7 @@ public class EditarPerfilUsuario extends javax.swing.JFrame {
     int index;
     /**
      * Creates new form ListaAmigosUsuario_1
-     * @param tecnico
+     * @param tecnico es de tipo Usuario es el usuario el cual se quiere modificar en la ventana
      */
     public EditarPerfilUsuario(Usuario tecnico) {
         this.setTitle("Editar Perfil");

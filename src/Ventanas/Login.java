@@ -19,7 +19,7 @@ public class Login extends javax.swing.JFrame {
     TechnicalFace tec;
     /**
      * Creates new form Login_1
-     * @param tecnico
+     * @param tecnico es el tecnico que se registro  y ahora se va a logear
      */
     public Login(Tecnico tecnico){
         initComponents();
@@ -99,7 +99,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Atras");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

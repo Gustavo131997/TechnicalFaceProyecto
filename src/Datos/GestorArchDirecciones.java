@@ -18,8 +18,8 @@ import java.io.RandomAccessFile;
 import java.util.StringTokenizer;
 
 /**
- *
- * @author root
+ * Este es la clase de gestiona la direccion tanto de los tecnicos, como de los usuarios
+ * @author Gustavo Huerta
  */
 public class GestorArchDirecciones {
     public void cargarDireccionesUsuario(TechnicalFace technical){
@@ -44,6 +44,10 @@ public class GestorArchDirecciones {
             Mensajes.error("Error al cargar archivo: "+ex.getMessage());
         }
     }
+    /**
+     * 
+     * @param technical
+     */
     public void cargarDireccionesTecnico(TechnicalFace technical){
          try{
             RandomAccessFile arch = new RandomAccessFile(manejoArchivoyCarpetas()+File.separator+"Direccionestecnicos.txt","rw");
@@ -68,6 +72,10 @@ public class GestorArchDirecciones {
             Mensajes.error("Error al cargar archivo: "+ex.getMessage());
         }
     }
+    /**
+     * 
+     * @return 
+     */
     public String manejoArchivoyCarpetas(){
             File file = new File("Data"+File.separator+"Registro"+File.separator);
             try{
@@ -78,6 +86,10 @@ public class GestorArchDirecciones {
             }
             return null;
         }
+    /**
+     * 
+     * @param technicalFace
+     */
     public void guardarDireccionTecnico(TechnicalFace technicalFace){
          FileWriter fw2;
              PrintWriter pw2;
@@ -97,6 +109,10 @@ public class GestorArchDirecciones {
                 Mensajes.error("NO SE ENCUENTRA EL ARCHIVO");
             }
     }
+    /**
+     *
+     * @param technicalFace
+     */
     public void guardarDireccionUsuario(TechnicalFace technicalFace){
          FileWriter fw2;
              PrintWriter pw2;

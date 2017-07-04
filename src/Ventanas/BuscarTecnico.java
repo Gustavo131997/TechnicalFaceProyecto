@@ -30,7 +30,7 @@ public class BuscarTecnico extends javax.swing.JFrame {
     public TableRowSorter trs;
     /**
      * Creates new form JFrameBuscarTecnico
-     * @param usu
+     * @param usu es el  Usuario que quiere buscar un tecnico
      */
     public BuscarTecnico(Usuario usu) {
         this.usu = usu;
@@ -193,7 +193,7 @@ public class BuscarTecnico extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jCBoxBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBoxBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione..." }));
 
         jLabel6.setText("Seleccionar:");
 

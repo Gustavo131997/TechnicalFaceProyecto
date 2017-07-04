@@ -33,8 +33,8 @@ public class GuardarImagenes {
     /**
      * Guarda imagen en disco del segmento seleccionado con el mouse
      * @param usu tipo Usuario el cual le pertenece la foto perfil
-     * @param ruta
-     * @return rutaGuardada
+     * @param ruta es la ruta de la imagen que se quiere guardar
+     * @return rutaGuardada de la imagen 
      */
     public  static String saveImage(Usuario usu , String ruta){
         File f = new File(ruta);

@@ -1,1 +1,1 @@
- 0 , Gerson , Huerta , CAyun ,      Tecnico      , gustavo , c51ce410c124a10e0db5e4b97fc2af39 , gus@ufro.cl , 453478 , 834723 , Metalicos , 3 - 5 aÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ±os , 65 , Uno Oriente , /Data/Image/Image_0_gustavo.jpg
+ 0 , Gerson , Huerta , CAyun ,       Tecnico       , gustavo , c51ce410c124a10e0db5e4b97fc2af39 , gus@ufro.cl , 453478 , 834723 , Metalicos , 3 - 5 aÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ±os , 65 , Uno Oriente , /Data/Image/Image_0_gustavo.jpg

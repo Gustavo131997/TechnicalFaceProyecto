@@ -7,11 +7,25 @@ import Datos.GestorArchPuntajes;
  * @author Gustavo Huerta
  */
 public enum Evaluacion {
-        
+        /**
+         * Este objeto evalua con muy bien a un tecnico por usuario su id = 1, nota = 10, nom_evalua = Muy Bien y nom_desp = El tecnico hizo muy bien su trabajo, respeto los tiempos acordados, y el precio fue acorde a la calidad del servicio
+         */
 	MUYBIEN(1, 10, "Muy Bien", "El tecnico hizo muy bien su trabajo, respeto los tiempos acordados, y el precio fue acorde a la calidad del servicio"),
+        /**
+         * Este objeto evalua con bien a un tecnico por usuario su id = 2, nota = 7, nom_evalua = Bien y nom_desp = El tecnico hizo  bien su trabajo, no respeto los tiempos acordados, y el precio fue acorde a la calidad del servicio
+         */
         BIEN(2, 7, "Bien","El tecnico hizo  bien su trabajo, no respeto los tiempos acordados, y el precio fue acorde a la calidad del servicio"),
+        /**
+         * Este objeto evalua con bien a un tecnico por usuario su id = 3, nota = 5, nom_evalua = Regular y nom_desp = El tecnico hizo regular su trabajo, no  respeto los tiempos acordados, y el precio fue acorde a una calidad regular del servicio
+         */
         REGULAR(3, 5,"Regular","El tecnico hizo regular su trabajo, no  respeto los tiempos acordados, y el precio fue acorde a una calidad regular del servicio"),
+        /**
+         * Este objeto evalua con bien a un tecnico por usuario su id = 4, nota = 3, nom_evalua = Mal y nom_desp = El tecnico hizo mal su trabajo, se sobrepaso un poco los tiempos acordados, y el precio fue acorde a una calidad mala del servicio
+         */
         MAL(4, 3,"Mal","El tecnico hizo mal su trabajo, se sobrepaso un poco los tiempos acordados, y el precio fue acorde a una calidad mala del servicio\""),
+        /**
+         * Este objeto evalua con bien a un tecnico por usuario su id = 5, nota = 1, nom_evalua = Muy Mal y nom_desp = El tecnico no sabia hacer el trabajo 
+         */
         MUYMAL(5, 1,"Muy Mal","El tecnico no sabia hacer el trabajo");
         
         private final int id;

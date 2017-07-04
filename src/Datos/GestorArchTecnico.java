@@ -18,10 +18,14 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
- *
+ * Es la clase que gestiona el archivo donde esta guardando los tecnicos
  * @author gustavohuerta
  */
 public class GestorArchTecnico {
+    /**
+     * 
+     * @param technical 
+     */
         public void cargarTecnicosGuardados(TechnicalFace technical){
             try{
                 
@@ -57,7 +61,10 @@ public class GestorArchTecnico {
             Mensajes.error("Error al cargar archivo: "+ex.getMessage());
         }
         }
-
+        /**
+         * 
+         * @return 
+         */
         
         public static String manejoArchivoyCarpetas(){
             File file = new File("Data"+File.separator+"Registro"+File.separator);
@@ -69,6 +76,10 @@ public class GestorArchTecnico {
             }
             return null;
         }
+     /**
+      * 
+     * @param technicalFace
+      */
      public void guardar(TechnicalFace technicalFace){
              FileWriter fw2;  
              PrintWriter pw2;

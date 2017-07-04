@@ -36,7 +36,7 @@ public class Usuario extends Persona {
 
     /**
      *
-     * @param user
+     * @param user es de tipo String 
      */
     public void setUser(String user) {
         this.user = user;
@@ -79,14 +79,14 @@ public class Usuario extends Persona {
     }
     /**
      * 
-     * @return 
+     * @return el ArrayList de Tecnico evaluados
      */
     public ArrayList<Tecnico> getEvaluados() {
         return evaluados;
     }
     /**
      * 
-     * @param evaluados
+     *  @param evaluados es un ArrayList de Tecnicos evaluados
      */
     public void setEvaluados(ArrayList<Tecnico> evaluados) {
         this.evaluados = evaluados;

@@ -25,7 +25,7 @@ public class Direccion {
 
 	/**
 	 * 
-	 * @param region
+	 * @param region es de tipo String y es la region donde vive
 	 */
 	public void setRegion(String region) {
 		this.region = region;
@@ -37,7 +37,7 @@ public class Direccion {
 
 	/**
 	 * 
-	 * @param provincia
+	 * @param provincia es la provincia donde vive y es de tipo String 
 	 */
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
@@ -49,7 +49,7 @@ public class Direccion {
 
 	/**
 	 * 
-	 * @param comuna
+	 * @param comuna es de tipo String y es la comuna donde vive
 	 */
 	public void setComuna(String comuna) {
 		this.comuna = comuna;
@@ -61,7 +61,7 @@ public class Direccion {
 
 	/**
 	 * 
-	 * @param calle
+	 * @param calle es el nombre de la calle 
 	 */
 	public void setCalle(String calle) {
 		this.calle = calle;
@@ -73,7 +73,7 @@ public class Direccion {
 
 	/**
 	 * 
-	 * @param Num_calle
+	 * @param Num_calle es el numero de calle donde vive 
 	 */
 	public void setNum_calle(String Num_calle) {
 		this.num_calle = Num_calle;
@@ -85,7 +85,7 @@ public class Direccion {
 
 	/**
 	 * 
-	 * @param num_dep
+	 * @param num_dep es el numero de departamento 
 	 */
 	public void setNum_dep(String num_dep) {
 		this.num_dep = num_dep;

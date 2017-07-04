@@ -61,7 +61,10 @@ public class GestorArchPuntajes {
             Mensajes.error("Error al cargar archivo: "+ex.getMessage());
         }
     }
-    
+    /**
+     * 
+     * @return 
+     */
     public String manejoArchivoyCarpetas(){
             File file = new File("Data"+File.separator+"Registro"+File.separator);
             try{
@@ -72,7 +75,10 @@ public class GestorArchPuntajes {
              }
             return null;
         }
-    
+    /**
+     * 
+     * @param tecnico
+     */
     public void guardarPuntajes(Tecnico tecnico){
             FileWriter fw2;  
              PrintWriter pw2;
@@ -92,7 +98,10 @@ public class GestorArchPuntajes {
                 Mensajes.error("NO SE ENCUENTRA EL ARCHIVO");
             }
     }
-
+    /**
+     * Vacia el archivo de evaluaciones de un tecnico puntajes_i.txt a hora de borrar el tecnico del sistema
+     * @param tecnico es el tecnico el cual se quiere borrar sus evaluaciones
+     */
     public void vaciarArch(Tecnico tecnico) {
         FileWriter fw2;  
         PrintWriter pw2;
@@ -104,7 +113,10 @@ public class GestorArchPuntajes {
         }
         
     }
-    
+    /**
+     * Guardar los tecnicos evaluados por el usuario
+     * @param usu es el Usuario que se quiere guardar los tecnicos evaluaciones
+     */
     public void guardarTecnicosEvaluados(Usuario usu){
         File fw2;  
              PrintWriter pw2;
@@ -123,6 +135,7 @@ public class GestorArchPuntajes {
                 }
                 arch.close();
                 pw2 = new PrintWriter(fw2);
+                System.out.println(cadena);
                 pw2.println(cadena);
                 if (usu.cantidadTecnicoEvaluado() != 0) {
                     for (int i = 0; i <usu.cantidadTecnicoEvaluado(); i++) {
@@ -137,8 +150,8 @@ public class GestorArchPuntajes {
             }
     }
     /**
-     * 
-     * @param ev
+     * Guarda los datos de cada evaluaciones en el archivo de evaluaciones.txt
+     * @param ev es de tipo Evaluacion en cual se quiere guardar
      */
     public void guardarDatos(Evaluacion ev){
         try {
@@ -166,8 +179,8 @@ public class GestorArchPuntajes {
         }
     }
     /**
-     * 
-     * @return 
+     * Este metodo carga los datos guardados en el archivo evaluaciones.txt y lo almacena en un ArrayList de String
+     * @return de tipo ArrayList y es el ArrayList de String que tiene los datos de evaluaciones.txt
      */
     public ArrayList<String> cargarDatos(){
         RandomAccessFile arch;

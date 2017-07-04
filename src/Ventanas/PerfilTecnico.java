@@ -20,10 +20,10 @@ public class PerfilTecnico extends javax.swing.JFrame {
     Tecnico tec;
     Usuario usu1;
     /**
-     * Creates new form PerfilTecnico_1
-     * @param visible
-     * @param usu
-     * @param tec
+     * Crea la ventana del perfil vista del usuario
+     * @param visible de tipo boolean y hace visible o invisible los objetos grafico que el usuario puede ver
+     * @param usu es de tipo Usuario y es el usuario que quiere ver el perfil de algun tecnico
+     * @param tec es tipo de Tecnico y el tecnico que se quiere ver el perfil por el usuario
      */
     public PerfilTecnico(boolean visible, Usuario usu,  Tecnico tec) {
         this.tec = tec;
@@ -99,6 +99,7 @@ public class PerfilTecnico extends javax.swing.JFrame {
         titlered = new javax.swing.JLabel();
         botonAtras = new javax.swing.JButton();
         fotoPerfil = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         menuPrincipal = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -269,6 +270,13 @@ public class PerfilTecnico extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Cerrar Sesion");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("Configurar Cuenta");
 
         jMenuItem1.setText("Editar Perfil");
@@ -297,18 +305,21 @@ public class PerfilTecnico extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(fotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jButton2)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))))
+                        .addGap(50, 50, 50))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titlered)
@@ -326,17 +337,19 @@ public class PerfilTecnico extends javax.swing.JFrame {
                         .addComponent(fotoPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83)
                         .addComponent(btnToggleEv)
-                        .addGap(54, 54, 54)
+                        .addGap(30, 30, 30)
                         .addComponent(jButton1)
-                        .addGap(43, 43, 43)
-                        .addComponent(botonAtras))
+                        .addGap(42, 42, 42)
+                        .addComponent(botonAtras)
+                        .addGap(31, 31, 31)
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
@@ -403,6 +416,12 @@ public class PerfilTecnico extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonAtrasActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -439,6 +458,7 @@ public class PerfilTecnico extends javax.swing.JFrame {
     private Ventanas.CustomPanel customPanel1;
     private javax.swing.JLabel fotoPerfil;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

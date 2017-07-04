@@ -33,7 +33,7 @@ public class TechnicalFace {
 
 	/**
 	 * 
-	 * @param nombreRedSocial
+	 * @param nombreRedSocial es el nombre de la red social
 	 */
 	public void setNombreRedSocial(String nombreRedSocial) {
 		this.nombreRedSocial = nombreRedSocial;

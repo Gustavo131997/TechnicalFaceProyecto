@@ -48,7 +48,7 @@ public class Tecnico extends Usuario {
         
 	/**
 	 * 
-	 * @param especialidad
+	 * @param especialidad es la especialidad de un tecnico
 	 */
 	public void setEspecialidad(String especialidad) {
 		this.especialidad = especialidad;
@@ -60,7 +60,7 @@ public class Tecnico extends Usuario {
 
 	/**
 	 * 
-	 * @param anoExperencia
+	 * @param anoExperencia son el intervalo de años que lleva desarrollado su especialidad y es de tipo String 
 	 */
 	public void setAnoExperencia(String anoExperencia) {
 		this.anoExperencia = anoExperencia;
@@ -80,7 +80,7 @@ public class Tecnico extends Usuario {
 
 	/**
 	 * 
-	 * @param descripcion
+	 * @param descripcion es de tipo String 
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
