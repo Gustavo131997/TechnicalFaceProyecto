@@ -17,6 +17,8 @@ import TechnicalFace.Tecnico;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
    
 /**
  *
@@ -33,6 +35,9 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
     public EditarPerfilTecnico(Tecnico tecnico) {
         this.setTitle("Editar Perfil");
         initComponents();
+        this.technical = new TechnicalFace();
+        this.technical.setTecnicos(new ArrayList<>());
+        technical.cargarSistema();
         CargarComboBox.cargar(cBoxRegion, "SELECT * FROM Regiones");
         this.txtNombres.setText(tecnico.getNombre());
         this.txtApPaterno.setText(tecnico.getAp_paterno());
@@ -44,8 +49,14 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         this.txtCorreo2.setText(tecnico.getCorreo());
         this.txtNumCalle.setText(tecnico.getDireccion().getNum_calle());
         this.txtUser.setText(tecnico.getUser());
-        this.txtPass1.setText(tecnico.getPassword());
-        this.txtPass2.setText(tecnico.getPassword());
+        try {
+            this.txtPass1.setText(EncryptionMD5.Desencriptar(tecnico.getPassword()));
+            this.txtPass2.setText(EncryptionMD5.Desencriptar(tecnico.getPassword()));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        this.ruta.setText(tecnico.getDirFotoPerfil());
         for (int i = 0; i < this.cBoxRegion.getItemCount(); i++) {
            this.cBoxRegion.setSelectedIndex(i);
            String c = this.cBoxRegion.getSelectedItem().toString();
@@ -163,6 +174,15 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         ruta.setVisible(false);
+        ruta.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                rutaAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         lblFoto.setEnabled(false);
         lblFoto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -889,7 +909,6 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
             }
             if (this.jCheckBox2.isSelected()) {
                 tec.setDireccion(new Direccion());
-                tec.setDirFotoPerfil(""+ruta.getText());
                 tec.getDireccion().setRegion(this.cBoxRegion.getSelectedItem().toString());
                 tec.getDireccion().setComuna(this.cBoxComuna.getSelectedItem().toString());
                 tec.getDireccion().setProvincia(this.cBoxProvincia.getSelectedItem().toString());
@@ -913,14 +932,14 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                 if (validarContrasena() && validarEmail()) {
                     if (validarCampos.validarFormtCorreo(txtCorreo1.getText())) {
                         if (this.jCheckBox6.isSelected()) {
-                            if (!ruta.getText().equals("")) {
+                            if (!ruta.getText().equals(tec.getDirFotoPerfil())) {;
                                 tec.setDirFotoPerfil(GuardarImagenes.saveImage(tec , ruta.getText()));
                             }else{
-                                tec.setDirFotoPerfil("no tiene foto perfil");
+                                tec.setDirFotoPerfil("0");
                             }
                         }
                         technical.actualizarTecnico(index, tec);
-                        technical.guardarTecnico(tec);
+                        technical.actualizar();
                         
                         Mensajes.informacion("Modificacion correcta");
                         Login login = new Login(tec);
@@ -944,6 +963,10 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         }
             
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void rutaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_rutaAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rutaAncestorAdded
     public String validarCamposObligatoriosUsuario(){
         String informe = "Ingrese los siguientes campos:\n";
         if (this.txtNombres.getText().equals("")) {

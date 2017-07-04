@@ -127,6 +127,7 @@ public class ManipularTecnicos extends javax.swing.JFrame {
                 return false;
             }
         };
+        modeloTabla.addColumn("ID tecnico");
         modeloTabla.addColumn("Nombres");
         modeloTabla.addColumn("Apellido Paterno");
         modeloTabla.addColumn("Apellido Materno");
@@ -138,18 +139,19 @@ public class ManipularTecnicos extends javax.swing.JFrame {
         modeloTabla.addColumn("");
         JButton eliminar = new JButton("Eliminar");
         eliminar.setName("eliminar");
-        Object fila[] = new Object[9];
+        Object fila[] = new Object[10];
         for(int i = 0; i < technical.cantidadRegistroTecnico(); i++){
             Tecnico tec = technical.obtenerRegistroTecnico(i);
-            fila[0] = ""+tec.getNombre();
-            fila[1] = tec.getAp_paterno();
-            fila[2] =  tec.getAp_materno();
-            fila[3] = ""+tec.getDireccion().getRegion();
-            fila[4] = ""+tec.getDireccion().getProvincia();
-            fila[5] = ""+tec.getDireccion().getComuna();
-            fila[6] = ""+tec.getNivel_confianza()+"%";
-            fila[7] = ""+tec.cantidadPuntajes();
-            fila[8] = eliminar;
+            fila[0] = ""+tec.getId_persona();
+            fila[1] = ""+tec.getNombre();
+            fila[2] = tec.getAp_paterno();
+            fila[3] =  tec.getAp_materno();
+            fila[4] = ""+tec.getDireccion().getRegion();
+            fila[5] = ""+tec.getDireccion().getProvincia();
+            fila[6] = ""+tec.getDireccion().getComuna();
+            fila[7] = ""+tec.getNivel_confianza()+"%";
+            fila[8] = ""+tec.cantidadPuntajes();
+            fila[9] = eliminar;
             modeloTabla.addRow(fila);
         }
         tablaBusqueda.setModel(modeloTabla);

@@ -39,6 +39,10 @@ public enum Evaluacion {
 		this.id = id;
 	}
 
+        public int getId() {
+            return id;
+        }
+        
         public String getFechaEvaluacion() {
             return fechaEvaluacion;
         }
@@ -79,7 +83,7 @@ public enum Evaluacion {
         
         @Override
         public String toString() {
-            return super.toString() + " , "+this.fechaEvaluacion;
+            return super.toString() + ",";
         }
         
         public void guardarDatosEvaluacion(){

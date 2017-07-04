@@ -122,6 +122,7 @@ public class ManipularUsuarios extends javax.swing.JFrame {
                 return false;
             }
         };
+        modeloTabla.addColumn("ID usuario");
         modeloTabla.addColumn("Nombres");
         modeloTabla.addColumn("Apellido Paterno");
         modeloTabla.addColumn("Apellido Materno");
@@ -132,19 +133,17 @@ public class ManipularUsuarios extends javax.swing.JFrame {
         modeloTabla.addColumn("");
         JButton eliminar = new JButton("Eliminar");
         eliminar.setName("eliminar");
-        JButton ver = new JButton();
-        ver.setName("ver");
         Object fila[] = new Object[8];
         for(int i = 0; i < technical.cantidadRegistroUsuario(); i++){
             Usuario usu = technical.obtenerRegistroUsuario(i);
             if (usu.getTipoPerfil().equals("Usuario")) {
-            fila[0] = ""+usu.getNombre();
-            fila[1] = usu.getAp_paterno();
-            fila[2] =  usu.getAp_materno();
-            fila[3] = ""+usu.getDireccion().getRegion();
-            fila[4] = ""+usu.getDireccion().getProvincia();
-            fila[5] = ""+usu.getDireccion().getComuna();
-            fila[6] = ver;
+            fila[0] = ""+usu.getId_persona();
+            fila[1] = ""+usu.getNombre();
+            fila[2] = usu.getAp_paterno();
+            fila[3] =  usu.getAp_materno();
+            fila[4] = ""+usu.getDireccion().getRegion();
+            fila[5] = ""+usu.getDireccion().getProvincia();
+            fila[6] = ""+usu.getDireccion().getComuna();
             fila[7] = eliminar;
             modeloTabla.addRow(fila);
             }

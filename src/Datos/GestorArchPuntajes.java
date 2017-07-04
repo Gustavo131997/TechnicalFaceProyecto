@@ -51,7 +51,6 @@ public class GestorArchPuntajes {
                         }else if (evaluacion.equalsIgnoreCase("MUYMAL")) {
                             ev = Evaluacion.MUYMAL;
                         }
-                        ev.setFechaEvaluacion(st.nextToken()); 
                         tecnico.anadirEvaluacion(ev);
                     }
                     
@@ -105,9 +104,7 @@ public class GestorArchPuntajes {
         }
         
     }
-    public void cargarTecnicosEvaluados(Usuario usu){
-        
-    }
+    
     public void guardarTecnicosEvaluados(Usuario usu){
         FileWriter fw2;  
              PrintWriter pw2;
@@ -116,7 +113,7 @@ public class GestorArchPuntajes {
                 pw2 = new PrintWriter(fw2);
                 
                 if (usu.cantidadTecnicoEvaluado() != 0) {
-                    for (int i = 0; i < 4; i++) {
+                    for (int i = 0; i <usu.cantidadTecnicoEvaluado(); i++) {
                         Tecnico eva = usu.getEvaluado(i);
                         pw2.println(eva.getId_persona()+" , "+eva.getEspecialidad());
                     }
@@ -138,20 +135,53 @@ public class GestorArchPuntajes {
                 file.createNewFile();
             }
             RandomAccessFile arch = new RandomAccessFile(file,"rw");
-            String linea = null;
+            String linea = "";
             String cadena = "";
             while((linea = arch.readLine()) != null){
-                cadena += linea+"\n";
+                if (!linea.equals("")) {
+                    cadena += linea+"\n";
+                }
             }
             arch.close();
             PrintWriter pw = new PrintWriter(file);
             pw.println(cadena);
-            pw.println(ev.getId_tecnico()+","+ev.getId_usuario()+","+ev.getFechaEvaluacion());
+            pw.println(ev.getId_tecnico()+","+ev.getId_usuario()+","+ev.toString()+ev.getFechaEvaluacion());
             pw.close();
         } catch (FileNotFoundException ex) {
             
         } catch (IOException ex) {
             
         }
+    }
+    /**
+     * 
+     * @return 
+     */
+    public ArrayList<String> cargarDatos(){
+        RandomAccessFile arch;
+        try {
+            arch = new RandomAccessFile(manejoArchivoyCarpetas()+File.separator+"evaluaciones.txt","r");
+             String linea = null;
+                int cont = 0;
+                ArrayList<String> datos = new ArrayList<>();
+                while((linea = arch.readLine())!=null){
+                    if (!linea.equals("")) {
+                        StringTokenizer st = new StringTokenizer(linea, ",");
+                    datos.add(st.nextToken());
+                    datos.add(st.nextToken());
+                    datos.add(st.nextToken());
+                    datos.add(st.nextToken());
+                    datos.add(st.nextToken());
+                    }
+                }
+                arch.close();
+                return datos;
+        } catch (FileNotFoundException ex) {
+            
+        } catch (IOException ex) {
+            
+        }
+                
+        return null;
     }
 }

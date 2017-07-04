@@ -1,2 +1,0 @@
- 1 , Gustavo , Huerta , Cayun , admin , usuario , 8d9f026137ab7e73dd03c777be71f084 , gustavo@hotmail.com , 47583578 , 398423 , /Data/Image/Image_1_null.jpg 
- 2 , GUstavo , HUerta , CAyub , Usuario , usu , c20ad4d76fe97759aa27a0c99bff6710 , g@hot.com , 23987423 , 834728 , /Data/Image/Image_2_usu.jpg 

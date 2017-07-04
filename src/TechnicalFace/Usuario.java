@@ -94,9 +94,9 @@ public class Usuario extends Persona {
         return this.evaluados.get(i);
     }
 
-    public void cargarTecnicosEvaluados() {
+    public void grabarTecnicosEvaluados() {
         GestorArchPuntajes gestor = new GestorArchPuntajes();
-        gestor.cargarTecnicosEvaluados(this);
+        gestor.guardarTecnicosEvaluados(this);
     }
 
     /**
@@ -106,8 +106,6 @@ public class Usuario extends Persona {
      */
     public void ingresarEvaluacion(Tecnico tecnico, Evaluacion puntaje) {
         tecnico.ingresarNotaConfianza(puntaje);
-//            anadirEvaluado(tecnico);
-//            this.evaluaciones.add(puntaje);
         GestorArchPuntajes gestor = new GestorArchPuntajes();
         gestor.guardarPuntajes(tecnico);
     }
@@ -164,7 +162,7 @@ public class Usuario extends Persona {
     }
 
     public int cantidadTecnicoEvaluado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.evaluados.size();
     }
     
     

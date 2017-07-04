@@ -78,6 +78,9 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="ruta">
+      <Events>
+        <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="rutaAncestorAdded"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="ruta.setVisible(false);"/>
       </AuxValues>

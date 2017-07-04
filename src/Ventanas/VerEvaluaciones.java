@@ -5,17 +5,24 @@
  */
 package Ventanas;
 
+import Componentes.Render;
+import TechnicalFace.TechnicalFace;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author root
  */
-public class VerEvaluados extends javax.swing.JFrame {
-
+public class VerEvaluaciones extends javax.swing.JFrame {
+    DefaultTableModel modeloTabla;
+    TechnicalFace technical;
     /**
      * Creates new form VerEvaluados
      */
-    public VerEvaluados() {
+    public VerEvaluaciones() {
+        this.technical = new TechnicalFace();
         initComponents();
+        this.listarRegistro();
     }
 
     /**
@@ -28,11 +35,11 @@ public class VerEvaluados extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaBusqueda = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaBusqueda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -40,7 +47,7 @@ public class VerEvaluados extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaBusqueda);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,7 +68,44 @@ public class VerEvaluados extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+     private void listarRegistro(){
+        tablaBusqueda.setDefaultRenderer(Object.class, new Render());
+        modeloTabla = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        modeloTabla.addColumn("ID tecnico");
+        modeloTabla.addColumn("ID usuario");
+        modeloTabla.addColumn("Evaluacion");
+        modeloTabla.addColumn("Fecha");
+        modeloTabla.addColumn("Hora");
 
+        Object fila[] = new Object[7];
+        for(int i = 0; i < technical.cargarDatosEvaluaciones().size(); i++){
+            System.out.println(i);
+            String tec = technical.cargarDatosEvaluaciones().get(i);
+            fila[0] = ""+tec;
+            i++;
+            String tec1 = technical.cargarDatosEvaluaciones().get(i);
+            fila[1] = tec1;
+            i++;
+            String tec2 = technical.cargarDatosEvaluaciones().get(i);
+            fila[2] =  tec2;
+            i++;
+            String tec3 = technical.cargarDatosEvaluaciones().get(i);
+            fila[3] = tec3;
+            i++;
+            String tec4 = technical.cargarDatosEvaluaciones().get(i);
+            fila[4] = tec4;
+            modeloTabla.addRow(fila);
+        }
+        tablaBusqueda.setModel(modeloTabla);
+        tablaBusqueda.setRowHeight(60);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -79,26 +123,27 @@ public class VerEvaluados extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerEvaluados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerEvaluaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerEvaluados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerEvaluaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerEvaluados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerEvaluaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerEvaluados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerEvaluaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VerEvaluados().setVisible(true);
+                new VerEvaluaciones().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaBusqueda;
     // End of variables declaration//GEN-END:variables
 }

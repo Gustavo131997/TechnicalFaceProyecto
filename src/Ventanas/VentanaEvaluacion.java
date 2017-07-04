@@ -177,6 +177,8 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
         eva.setId_usuario(""+usuario.getId_persona());
         eva.guardarDatosEvaluacion();
         usuario.ingresarEvaluacion(tecnico, eva);
+        usuario.anadirEvaluado(tecnico);
+        usuario.grabarTecnicosEvaluados();
         PerfilTecnico perfilTecnico = new PerfilTecnico(true,usuario, tecnico);
         perfilTecnico.setVisible(true);
         dispose();   
@@ -201,6 +203,8 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
         eva.setId_usuario(""+usuario.getId_persona());
         eva.guardarDatosEvaluacion();
         usuario.ingresarEvaluacion(tecnico, eva);
+        usuario.anadirEvaluado(tecnico);
+        usuario.grabarTecnicosEvaluados();
         PerfilTecnico perfilTecnico = new PerfilTecnico(true, usuario , tecnico);
         perfilTecnico.setVisible(true);
         dispose();
@@ -213,6 +217,8 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
         eva.setId_usuario(""+usuario.getId_persona());
         eva.guardarDatosEvaluacion();
         usuario.ingresarEvaluacion(tecnico, eva);
+        usuario.anadirEvaluado(tecnico);
+        usuario.grabarTecnicosEvaluados();
         PerfilTecnico perfilTecnico = new PerfilTecnico(true, usuario , tecnico);
         perfilTecnico.setVisible(true);    
         dispose();
@@ -225,6 +231,8 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
         eva.setId_usuario(""+usuario.getId_persona());
         eva.guardarDatosEvaluacion();
         usuario.ingresarEvaluacion(tecnico, eva);
+        usuario.anadirEvaluado(tecnico);
+        usuario.grabarTecnicosEvaluados();
         PerfilTecnico perfilTecnico = new PerfilTecnico(true, usuario , tecnico);
         perfilTecnico.setVisible(true);
         dispose();
@@ -237,6 +245,8 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
         eva.setId_usuario(""+usuario.getId_persona());
         eva.guardarDatosEvaluacion();
         usuario.ingresarEvaluacion(tecnico, eva);
+        usuario.anadirEvaluado(tecnico);
+        usuario.grabarTecnicosEvaluados();
         PerfilTecnico perfilTecnico = new PerfilTecnico(true, usuario , tecnico);
         perfilTecnico.setVisible(true);
         dispose();

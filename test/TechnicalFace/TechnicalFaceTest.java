@@ -173,21 +173,137 @@ public class TechnicalFaceTest {
     }
 
     /**
+     * Test of obtenerId_personaTecnico method, of class TechnicalFace.
+     */
+    @Test
+    public void testObtenerId_personaTecnico() {
+        System.out.println("obtenerId_personaTecnico");
+        TechnicalFace instance = new TechnicalFace();
+        int expResult = 0;
+        int result = instance.obtenerId_personaTecnico();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of obtenerPosTecnico method, of class TechnicalFace.
+     */
+    @Test
+    public void testObtenerPosTecnico() {
+        System.out.println("obtenerPosTecnico");
+        Tecnico tec = null;
+        TechnicalFace instance = new TechnicalFace();
+        int expResult = 0;
+        int result = instance.obtenerPosTecnico(tec);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of actualizarTecnico method, of class TechnicalFace.
+     */
+    @Test
+    public void testActualizarTecnico() {
+        System.out.println("actualizarTecnico");
+        int index = 0;
+        Tecnico tec = null;
+        TechnicalFace instance = new TechnicalFace();
+        instance.actualizarTecnico(index, tec);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of obtenerPosUsuario method, of class TechnicalFace.
+     */
+    @Test
+    public void testObtenerPosUsuario() {
+        System.out.println("obtenerPosUsuario");
+        Usuario usu = null;
+        TechnicalFace instance = new TechnicalFace();
+        int expResult = 0;
+        int result = instance.obtenerPosUsuario(usu);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+       // fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of actualizarUsuario method, of class TechnicalFace.
+     */
+    @Test
+    public void testActualizarUsuario() {
+        System.out.println("actualizarUsuario");
+        int index = 0;
+        Usuario usu = null;
+        TechnicalFace instance = new TechnicalFace();
+        instance.actualizarUsuario(index, usu);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of verificarUsuario method, of class TechnicalFace.
+     */
+    @Test
+    public void testVerificarUsuario() {
+        System.out.println("verificarUsuario");
+        Usuario usu = null;
+        TechnicalFace instance = new TechnicalFace();
+        boolean expResult = false;
+        boolean result = instance.verificarUsuario(usu);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of verificarTecnico method, of class TechnicalFace.
+     */
+    @Test
+    public void testVerificarTecnico() {
+        System.out.println("verificarTecnico");
+        Tecnico tec = null;
+        TechnicalFace instance = new TechnicalFace();
+        boolean expResult = false;
+        boolean result = instance.verificarTecnico(tec);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of obtenerId_personaUsuario method, of class TechnicalFace.
+     */
+    @Test
+    public void testObtenerId_personaUsuario() {
+        System.out.println("obtenerId_personaUsuario");
+        TechnicalFace instance = new TechnicalFace();
+        int expResult = 0;
+        int result = instance.obtenerId_personaUsuario();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
      * Test of obtenerRegistroTecnico method, of class TechnicalFace.
      */
     @Test
     public void testObtenerRegistroTecnico() {
         System.out.println("obtenerRegistroTecnico");
-        int i = 0;
+        int i = 2;
         TechnicalFace instance = new TechnicalFace();
         instance.setTecnicos(new ArrayList<>());
-        instance.añadirTecnico(new Tecnico());
+        instance.anadirTecnico(new Tecnico());
         Tecnico expResult = new Tecnico();
         Tecnico result = instance.obtenerRegistroTecnico(i);
-        assertEquals(expResult, result); 
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-    }   
+        //fail("The test case is a prototype.");
+    }
 
     /**
      * Test of guardarTecnico method, of class TechnicalFace.
@@ -203,14 +319,26 @@ public class TechnicalFaceTest {
     }
 
     /**
-     * Test of añadirTecnico method, of class TechnicalFace.
+     * Test of anadirTecnico method, of class TechnicalFace.
      */
     @Test
-    public void testAñadirTecnico() {
-        System.out.println("a\u00f1adirTecnico");
+    public void testAnadirTecnico() {
+        System.out.println("anadirTecnico");
         Tecnico tecnico = null;
         TechnicalFace instance = new TechnicalFace();
-        instance.añadirTecnico(tecnico);
+        instance.anadirTecnico(tecnico);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of actualizar method, of class TechnicalFace.
+     */
+    @Test
+    public void testActualizar() {
+        System.out.println("actualizar");
+        TechnicalFace instance = new TechnicalFace();
+        instance.actualizar();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -258,14 +386,71 @@ public class TechnicalFaceTest {
     }
 
     /**
-     * Test of añadirUsuario method, of class TechnicalFace.
+     * Test of obtenerRegistroUsuarioId method, of class TechnicalFace.
      */
     @Test
-    public void testAñadirUsuario() {
-        System.out.println("a\u00f1adirUsuario");
+    public void testObtenerRegistroUsuarioId() {
+        System.out.println("obtenerRegistroUsuarioId");
+        int id = 0;
+        TechnicalFace instance = new TechnicalFace();
+        Usuario expResult = null;
+        Usuario result = instance.obtenerRegistroUsuarioId(id);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of obtenerRegistroTecnicoId method, of class TechnicalFace.
+     */
+    @Test
+    public void testObtenerRegistroTecnicoId() {
+        System.out.println("obtenerRegistroTecnicoId");
+        int id = 0;
+        TechnicalFace instance = new TechnicalFace();
+        Tecnico expResult = null;
+        Tecnico result = instance.obtenerRegistroTecnicoId(id);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of anadirUsuario method, of class TechnicalFace.
+     */
+    @Test
+    public void testAnadirUsuario() {
+        System.out.println("anadirUsuario");
         Usuario usu = null;
         TechnicalFace instance = new TechnicalFace();
         instance.anadirUsuario(usu);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of eliminar method, of class TechnicalFace.
+     */
+    @Test
+    public void testEliminar() {
+        System.out.println("eliminar");
+        Object obj = null;
+        TechnicalFace instance = new TechnicalFace();
+        instance.eliminar(obj);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of cargarDatosEvaluaciones method, of class TechnicalFace.
+     */
+    @Test
+    public void testCargarDatosEvaluaciones() {
+        System.out.println("cargarDatosEvaluaciones");
+        TechnicalFace instance = new TechnicalFace();
+        ArrayList<String> expResult = null;
+        ArrayList<String> result = instance.cargarDatosEvaluaciones();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
