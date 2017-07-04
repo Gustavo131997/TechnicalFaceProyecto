@@ -2,7 +2,16 @@ package TechnicalFace;
 
 import Datos.GestorArchPuntajes;
 import java.util.*;
-
+/**
+ * Esta clase representa al tecnico que se va a ser evaluado por un usuario a traves de la app y es hija de la clase Usuario
+ * atributos:
+ *          -tipoPerfil : Representa diferenciacion entre tres perfiles admin, Usuario y Tecnico el cual cada uno tendra
+ *          -user: Representa el nombre de usuario por el cual va logearse 
+ *          -password: Representa la contraseña por el cual va logearse el usuario
+ *          -dirFotoPerfil: Representa la direccion donde se encuentra la foto de perfil de un usuario
+ *          -correo:: es el correo de un usuario
+ * @author Gustavo Huerta
+ */
 public class Tecnico extends Usuario {
 
 	Usuario evaluador;
@@ -76,32 +85,33 @@ public class Tecnico extends Usuario {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-        
+        /**
+         * Este metodo añade una evaluacion a un Tecnico al ArrayList Puntajes
+         * @param eva es de tipo Evaluacion y es la evaluacion que se quiere ingresar
+         */
         public void anadirEvaluacion(Evaluacion eva){
             this.puntajes.add(eva);
         }
 	
 
 	/**
-         * 
-         * @param index
-         * @return 
+         * Retorna una evaluacion 
+         * @param index es un int y representa la posicion de la evaluacion que se quiere obtener
+         * @return es de tipo Evaluacion
          */
         public Evaluacion getEvaluacion(int index){
             return this.puntajes.get(index);
         }
-
-        
-        
-        
-        
+        /**
+         * CArgas todos los puntajes desde el archivo al objeto usando la clase GestorArchPuntajes el metodo cargarPuntajes de la clase
+         */
         public void cargarPuntajes(){
             GestorArchPuntajes gestor = new GestorArchPuntajes();
             gestor.cargarPuntajes(this);
         }
         /**
-         * 
-         * @return nu int que es el calculo 
+         * Este es el metodo calcula el atributo nivel_confianza en razon del total obtenido y el puntaje total ideal(maximo) multiplicado por cien 
+         * @return un int que es el calculo del atributo nivel_confianza 
          */
         public int calculoConfianza(){
             int total = 0;
@@ -118,6 +128,10 @@ public class Tecnico extends Usuario {
             }
             return calculo;
         }
+        /**
+         * ESte emetodo ingresa una Evalaucion a un Tecnico
+         * @param eva es de tipo Evalauacion y es la evaluacion que se quiere ingresar
+         */
         public void ingresarNotaConfianza(Evaluacion eva) {
 	    this.puntajes.add(eva);
         }
@@ -127,14 +141,10 @@ public class Tecnico extends Usuario {
             return " "+super.id_persona+ " , "+super.nombre+ " , "+super.ap_paterno+ " , "+super.ap_materno +" , "+super.tipoPerfil+" , "+super.user+ " , "+ super.password+ " , "+super.correo+" , "+super.celular+" , "+super.telefono+" , "+ especialidad + " , " + anoExperencia + " , " + nivel_confianza + " , " + descripcion + " , "+super.dirFotoPerfil;
         }
         
-        public String toStringPuntajes(){
-            String cadena = ""+getId_persona()+" , "+evaluador.getId_persona() ;
-            for (int i = 0; i < this.puntajes.size(); i++) {
-                cadena += "\n "+puntajes.get(i).toString()+";\n";
-            }
-            return cadena;
-        }
-        
+        /**
+         * Es metodo retorna la cantidad de puntajes que el tecnico tiene ingresado en su ArrayList puntajes
+         * @return es de tipo int y representa la cantidad de puntajes
+         */
         public int cantidadPuntajes(){
             return this.puntajes.size();
         }
@@ -148,7 +158,9 @@ public class Tecnico extends Usuario {
         public int hashCode() {
             return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
         }
-
+        /**
+         * Este metodo borra todo los puntajes del archivo a traves del metodo vaciarArch que es de la clase GestorArchPuntajes
+         */
         public void borrarPuntajes() {
             GestorArchPuntajes gestor = new GestorArchPuntajes();
             gestor.vaciarArch(this);

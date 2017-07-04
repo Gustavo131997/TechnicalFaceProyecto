@@ -106,12 +106,24 @@ public class GestorArchPuntajes {
     }
     
     public void guardarTecnicosEvaluados(Usuario usu){
-        FileWriter fw2;  
+        File fw2;  
              PrintWriter pw2;
             try{
-                fw2 = new FileWriter(manejoArchivoyCarpetas()+File.separator+"usuario_"+usu.getId_persona()+".txt");
+                fw2 = new File(manejoArchivoyCarpetas()+File.separator+"usuario_"+usu.getId_persona()+".txt");
+                if (!fw2.exists()) {
+                    fw2.createNewFile();
+                }
+                RandomAccessFile arch = new RandomAccessFile(fw2,"rw");
+                String linea = "";
+                String cadena = "";
+                while((linea = arch.readLine()) != null){
+                    if (!linea.equals("")) {
+                        cadena += linea+"\n";
+                    }
+                }
+                arch.close();
                 pw2 = new PrintWriter(fw2);
-                
+                pw2.println(cadena);
                 if (usu.cantidadTecnicoEvaluado() != 0) {
                     for (int i = 0; i <usu.cantidadTecnicoEvaluado(); i++) {
                         Tecnico eva = usu.getEvaluado(i);

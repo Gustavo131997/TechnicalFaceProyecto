@@ -6,7 +6,13 @@ import Datos.GestorArchPuntajes;
 import Datos.GestorArchTecnico;
 import Datos.GestorArchUsuario;
 import java.util.*;
-
+/**
+ * Esta clase representa la red social el cual maneja los usuarios y tecnicos agregados
+ * atributos:
+ *          -nombreRedSocial : es el nombre de la red social en este caso será por defecto TechnicalFace
+ *          -terminos_condicones: son terminos y condiciones en cual se somete todo usuario y tecnico que se quiere registrar
+ * @author Gustavo Huerta
+ */
 public class TechnicalFace {
 
 	ArrayList<Usuario> usuarios;
@@ -16,7 +22,7 @@ public class TechnicalFace {
 
         public TechnicalFace() {
             this.nombreRedSocial = "TechnicalFace";
-            this.terminos_condiciones = "";
+            this.terminos_condiciones = "Escribir terminos y condiciones";
         }
         
         
@@ -212,7 +218,7 @@ public class TechnicalFace {
     }
     
     /**
-     * Este actualiza en el archivo todos los tecnicos 
+     * Este actualiza en el archivo todos los tecnicos y usuarios del sistema en los archivos .txt
      */
     public void actualizar(){
         GestorArchUsuario gestorUsu = new GestorArchUsuario();
@@ -224,8 +230,8 @@ public class TechnicalFace {
         gestorDir.guardarDireccionTecnico(this);
     }
     /**
-     * 
-     * @param usu
+     * Este metodo guarda un usuario en particular en el sistema 
+     * @param usu es de tipo Usuario y es el objeto que se quiere guardar
      */
     public void guardarUsuario(Usuario usu){
         if (!verificarUsuario(usu)) {
@@ -240,16 +246,17 @@ public class TechnicalFace {
             
     }
     /**
-     * 
-     * @return 
+     * Este este metodo retorna la cantidad de usuarios resgistrados en la aplicacion
+     * @return de tipo int y es el tamaño del ArrayList usuarios
      */
     public int cantidadRegistroUsuario() {
         return this.usuarios.size();
     }
     /**
-     * 
-     * @param i
-     * @return 
+     * Este metodo sirve para obtener a un Usuario de ArrayList usuarios
+     * @param i es de tipo int y es la posicionde  Usuario que se quiere obtener
+     * @return un Tecnico si el parametro i esta dentro del tamaño del ArrayList o sino lanzara la exception java.lang.IndexOutOfBoundsException y
+     * si se le ingresa un i negativo retorna null
      */
     public Usuario obtenerRegistroUsuario(int i) {
         if (i>= 0) {
@@ -260,9 +267,9 @@ public class TechnicalFace {
         }
     }
     /**
-     * 
-     * @param id
-     * @return 
+     * Este metodo se obtiene un Usuario por el id_persona de cada usuario
+     * @param id es de tipo int y es el id_persona de un Usuario
+     * @return un Usuario si id_persona existe dentro el ArrayList usuarios sino retorna null
      */
     public Usuario obtenerRegistroUsuarioId(int id){
         for (int i = 0; i < this.cantidadRegistroUsuario(); i++) {
@@ -274,9 +281,9 @@ public class TechnicalFace {
         return null;
     }
     /**
-     * 
-     * @param id
-     * @return 
+     * Este metodo se obtiene un Tecnico por el id_persona de cada tecnico
+     * @param id es de tipo int y es el id_persona de un Tecnico
+     * @return un Tecnico si id_persona existe dentro el ArrayList tecnicos sino retorna null
      */
     public Tecnico obtenerRegistroTecnicoId(int id){
         for (int i = 0; i < this.cantidadRegistroTecnico(); i++) {
@@ -288,8 +295,8 @@ public class TechnicalFace {
         return null;
     }
     /**
-     * 
-     * @param usu 
+     * Este metodo añade a  usu al ArrayList usuarios
+     * @param usu es el Usuario a añadir en el ArrayList usuarios
      */
     public void anadirUsuario(Usuario usu) {
         try{
@@ -301,8 +308,8 @@ public class TechnicalFace {
         }
     }
     /**
-     * 
-     * @param obj 
+     * ESte elimina tanto a un tecnico como un usuario de su ArrayList respectivo
+     * @param obj es de tipo Object y se convierte en usuario si es una instancia de Usuario o sae convierte en tecnico si es una instancia de Tecnico
      */
     public void eliminar(Object obj) {
          if (obj instanceof Usuario) {
@@ -329,8 +336,8 @@ public class TechnicalFace {
         }
     }
     /**
-     * 
-     * @return 
+     * carga los datos de las evalaciones guardadas en el archivo evaluaciones.txt
+     * @return un ArrayList de String con todos los datos de las evalauciones
      */
     public ArrayList<String> cargarDatosEvaluaciones(){
         GestorArchPuntajes gestor = new GestorArchPuntajes();

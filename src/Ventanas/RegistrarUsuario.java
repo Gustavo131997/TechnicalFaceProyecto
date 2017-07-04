@@ -73,7 +73,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtApMaterno = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCBoxPrefijo = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         cBoxRegion = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
@@ -204,7 +204,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
         jLabel23.setText("+569");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+02", "+45", "+65", "+64" }));
+        jCBoxPrefijo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+02", "+45", "+65", "+64" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,7 +229,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCBoxPrefijo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFonoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -258,7 +258,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(txtFonoFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCBoxPrefijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -701,7 +701,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         this.cBoxProvincia.setSelectedIndex(0);
         this.cBoxComuna.setSelectedIndex(0);
         this.jCheckBox1.setSelected(false);
-        this.jComboBox1.setSelectedIndex(0);
+        this.jCBoxPrefijo.setSelectedIndex(0);
         this.cBoxAnoExper.setSelectedIndex(0);
         this.jTextArea1.setText("");
     }
@@ -712,8 +712,8 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             usuario.setNombre(this.txtNombres.getText());
             usuario.setAp_materno(this.txtApMaterno.getText());
             usuario.setAp_paterno(this.txtApPaterno.getText());
-            usuario.setCelular(this.txtCelular.getText());
-            usuario.setTelefono(this.txtFonoFijo.getText());
+            usuario.setCelular("+569"+this.txtCelular.getText());
+            usuario.setTelefono(this.jCBoxPrefijo.getSelectedItem().toString()+this.txtFonoFijo.getText());
             usuario.setUser(this.jTextFieldNombreUser.getText());
             usuario.setPassword(EncryptionMD5.getStringMessageDigest(txtPassword1.getText(),EncryptionMD5.MD5));
             usuario.setCorreo(this.txtCorreo1.getText());
@@ -849,7 +849,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
     private void txtFonoFijoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFonoFijoKeyPressed
         validarCampos.soloNumeros(txtFonoFijo);
-        validarCampos.cantCaracteres(txtFonoFijo, 6);
+        validarCampos.cantCaracteres(txtFonoFijo, 7);
     }//GEN-LAST:event_txtFonoFijoKeyPressed
 
     private void cBoxRegionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxRegionActionPerformed
@@ -923,8 +923,8 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cBoxRegion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonRegistrar;
+    private javax.swing.JComboBox<String> jCBoxPrefijo;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxEsp;
     private javax.swing.JComboBox<String> jComboBoxRegistrar;
     private javax.swing.JLabel jLabel1;

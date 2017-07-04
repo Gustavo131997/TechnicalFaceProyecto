@@ -2,7 +2,16 @@ package TechnicalFace;
 
 import Datos.GestorArchPuntajes;
 import java.util.*;
-
+ /**
+ * Esta clase representa al usuario que se va utilizar la app para buscar y evaluar a tecnicos y es hija de la clase Persona
+ * atributos:
+ *          -tipoPerfil : Representa diferenciacion entre tres perfiles admin, Usuario y Tecnico el cual cada uno tendra
+ *          -user: Representa el nombre de usuario por el cual va logearse 
+ *          -password: Representa la contraseña por el cual va logearse el usuario
+ *          -dirFotoPerfil: Representa la direccion donde se encuentra la foto de perfil de un usuario
+ *          -correo:: es el correo de un usuario
+ * @author Gustavo Huerta
+ */
 public class Usuario extends Persona {
 
     ArrayList<Tecnico> evaluados;
@@ -68,54 +77,57 @@ public class Usuario extends Persona {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Tecnico> getEvaluados() {
         return evaluados;
     }
-
+    /**
+     * 
+     * @param evaluados
+     */
     public void setEvaluados(ArrayList<Tecnico> evaluados) {
         this.evaluados = evaluados;
     }
 
     /**
-     *
-     * @param tecnico
+     * ESte metodo añade un tecnico evaluado por un usuario
+     * @param tecnico es te tipo Tecnico y representa el Tecnico evaluado
      */
     public void anadirEvaluado(Tecnico tecnico) {
         this.evaluados.add(tecnico);
     }
 
     /**
-     *
-     * @param i : index de posicion dentro del arraylist
-     * @return
+     * ESte metodo obtiene un Tecnico 
+     * @param i : index de posicion dentro del arraylist evaluados
+     * @return un evaluado de tipo Tecnico si el index dentro tamaño del ArrayList si no una exception 
      */
     public Tecnico getEvaluado(int i) {
         return this.evaluados.get(i);
     }
-
+    /**
+     * ESte metodo sirve para guardar los tecnicos evaluados atraves de la clase GestorArchPuntajes con el metodo guardarTecnicosEvaluados
+     */
     public void grabarTecnicosEvaluados() {
         GestorArchPuntajes gestor = new GestorArchPuntajes();
         gestor.guardarTecnicosEvaluados(this);
     }
 
     /**
-     *
-     * @param tecnico
-     * @param puntaje
+     * Este metodo se utiliza para ingresar una evaluacion hecha por el usuario a un tecnico espefico 
+     * @param tecnico es de tipo Tecnico y es el tecnico que se evalua
+     * @param puntaje es te puntaje o nota que se le ingresa al tecnico
      */
     public void ingresarEvaluacion(Tecnico tecnico, Evaluacion puntaje) {
         tecnico.ingresarNotaConfianza(puntaje);
         GestorArchPuntajes gestor = new GestorArchPuntajes();
         gestor.guardarPuntajes(tecnico);
     }
-
-    public int cantidadTecnicosEvaluados() {
-        return this.evaluados.size();
-    }
-
     /**
-     *
+     * Este retorna un String de la direccion de un Usuario y es la contatenacion de la id_persona del usuario con el to String de su direccion
      * @return tipo String
      */
     public String toStringDir() {
@@ -160,7 +172,10 @@ public class Usuario extends Persona {
         }
         return true;
     }
-
+    /**
+     * Retorna la cantidad de evaluados existente en el ArrayList evaluados
+     * @return es de tipo int 
+     */
     public int cantidadTecnicoEvaluado() {
         return this.evaluados.size();
     }

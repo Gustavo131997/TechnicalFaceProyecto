@@ -1,5 +1,15 @@
 package TechnicalFace;
-
+ /**
+ * Esta clase es abstracta y representa la persona en la realidad 
+ * atributos:
+ *          -id_persona: Representa el identificador que tendra toda persona dentro de la red social
+ *          -nombre: Representa el nombre de la persona
+ *          -ap_paterno: Representa el apellido paterno de la persona
+ *          -ap_materno: Representa el apellido materno de toda persona
+ *          -celular: Representa el celular de la persona
+ *          -telefono: Representa el telefono fijo de la persona
+ * @author Gustavo Huerta
+ */
 public abstract class Persona {
   
 	protected Direccion direccion;

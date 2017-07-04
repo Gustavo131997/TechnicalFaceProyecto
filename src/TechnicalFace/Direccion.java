@@ -1,5 +1,15 @@
 package TechnicalFace;
-  
+ /**
+ * Esta clase representa Dirrecion ya sea de un tecnico o de un usuario 
+ * atributos:
+ *          -region : Representa la region del pais donde vive
+ *          -provincia: Reprenseta la provincia de la region donde vive
+ *          -comuna: Representa comuna de la provincia} donde vive
+ *          -calle: Representa la calle de la comuna donde vive
+ *          -num_calle: Rpresenta el numero de la calle donde vive
+ *          -num_dep: Representa el numero de departamento, si vive en un departamento
+ * @author Gustavo Huerta
+ */
 public class Direccion {
 
 	private String region;

@@ -72,7 +72,7 @@ public class EncryptionMD5 {
             System.out.println("t");
             decipher.init(Cipher.DECRYPT_MODE, key);
             System.out.println("r");
-            System.out.println(message);
+            System.out.println(Arrays.toString(message));
             byte[] plainText = decipher.doFinal(message);
             System.out.println(Arrays.toString(plainText));
             base64EncryptedString = new String(plainText, "UTF-8");

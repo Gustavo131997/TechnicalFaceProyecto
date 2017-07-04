@@ -1,7 +1,11 @@
 package TechnicalFace;
 
 import Datos.GestorArchPuntajes;
-
+/**
+ * Esta clase se utiliza para evaluar a tecnico, es de tipo enum y tiene los siguientes objetos 
+ * MUYBIEN, BIEN, REGULAR, MAL Y MUYMAL
+ * @author Gustavo Huerta
+ */
 public enum Evaluacion {
         
 	MUYBIEN(1, 10, "Muy Bien", "El tecnico hizo muy bien su trabajo, respeto los tiempos acordados, y el precio fue acorde a la calidad del servicio"),
@@ -27,7 +31,7 @@ public enum Evaluacion {
         
         
 	/**
-	 * 
+	 * @param id 
 	 * @param nota
 	 * @param nom_evalua
 	 * @param desc_evalua
@@ -85,7 +89,10 @@ public enum Evaluacion {
         public String toString() {
             return super.toString() + ",";
         }
-        
+        /**
+         * Este metodo utiliza de la clase GestorArchPuntajes el metodo guardarDatos para 
+         * guardar los suientes atributos: id_tecnico evaluado, id_usuario evaluado y fechaEvaluacion 
+         */
         public void guardarDatosEvaluacion(){
             GestorArchPuntajes gestor = new GestorArchPuntajes();
             gestor.guardarDatos(this);
