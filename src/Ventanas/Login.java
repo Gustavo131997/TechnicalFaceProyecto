@@ -26,6 +26,13 @@ public class Login extends javax.swing.JFrame {
         this.txtUser.setText(tecnico.getUser());
         tec = new TechnicalFace();
     }
+    public Login(Usuario usu) {
+        
+        initComponents();
+        this.txtUser.setText(usu.getUser());
+        tec = new TechnicalFace();
+        
+    }
     public Login() {
         initComponents();
         tec = new TechnicalFace();
@@ -149,11 +156,13 @@ public class Login extends javax.swing.JFrame {
                 dispose();
             }else{
                 if (usu.getTipoPerfil().equals("Usuario")) {
+                    usu.setDireccion(tec.obtenerRegistroUsuario(tec.obtenerPosUsuario(usu)).getDireccion());
                     PerfilUsuario perfilUsuario = new PerfilUsuario(usu);
                     perfilUsuario.setVisible(true);
                     dispose();
                 }
                 if(usu.getTipoPerfil().equals("admin")){
+                    usu.setDireccion(tec.obtenerRegistroUsuario(tec.obtenerPosUsuario(usu)).getDireccion());
                     Administrador admin = new Administrador(usu);
                     admin.setVisible(true);
                     dispose();

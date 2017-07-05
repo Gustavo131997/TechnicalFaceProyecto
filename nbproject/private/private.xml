@@ -3,31 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Datos/GestorArchPuntajes.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Componentes/EncryptionMD5.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Datos/GestorArchTecnico.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Datos/GestorArchUsuario.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/ManipularUsuarios.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Componentes/GuardarImagenes.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/VentanaEvaluacion.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/TechnicalFace/Direccion.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/Login.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/EditarPerfilUsuario.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/EditarPerfilTecnico.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/ManipularTecnicos.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/TechnicalFace/Usuario.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/BuscarTecnico.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/ContactoTecnico.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/TechnicalFace/TechnicalFace.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/Administrador.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/RegistrarUsuario.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/PerfilTecnico.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/TechnicalFace/Evaluacion.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/VerEvaluaciones.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/Inicio.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/TechnicalFace/Tecnico.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Datos/GestorArchDirecciones.java</file>
-            <file>file:/root/Desktop/proyecto/TechnicalFace/src/Ventanas/PerfilUsuario.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/TechnicalFace/Usuario.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/Ventanas/Login.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/Ventanas/PerfilUsuario.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/Ventanas/PerfilTecnico.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/Ventanas/ManipularUsuarios.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/Ventanas/EditarPerfilTecnico.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/Ventanas/BuscarTecnico.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/TechnicalFace/TechnicalFace.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/Ventanas/ManipularTecnicos.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/Ventanas/RegistrarUsuario.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/Ventanas/VerEvaluaciones.java</file>
+            <file>file:/home/gustavohuerta/Documentos/Proyecto%20de%20Programacion%20java/TechnicalFaceProyecto/src/Ventanas/ContactoTecnico.java</file>
         </group>
     </open-files>
 </project-private>

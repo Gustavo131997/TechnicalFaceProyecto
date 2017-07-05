@@ -606,6 +606,9 @@
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea1.setLineWrap(true);&#xa;jTextArea1.setWrapStyleWord(true);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -808,6 +811,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jLabel22MouseMoved"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel22MouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="ruta">

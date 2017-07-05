@@ -50,24 +50,22 @@ public class BuscarTecnico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaBusqueda = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jCBoxBusqueda = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,10 +83,6 @@ public class BuscarTecnico extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tablaBusqueda);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Todas" , "Informatica" }));
-
-        jLabel2.setText("Seleccione Especialidad:");
 
         jLabel1.setText("Filtrar Por:");
 
@@ -115,7 +109,7 @@ public class BuscarTecnico extends javax.swing.JFrame {
 
         jLabel4.setText("Filtrar Por:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar...", "Nombre", "Apellido Paterno", "Apellido Materno" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar...", "Nombre", "Apellido Paterno", "Apellido Materno", "Especialidad"}));
 
         jLabel5.setText("O por");
 
@@ -125,26 +119,24 @@ public class BuscarTecnico extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(jRadioButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton3)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
+                .addGap(153, 153, 153)
                 .addComponent(jLabel5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,13 +147,13 @@ public class BuscarTecnico extends javax.swing.JFrame {
                     .addComponent(jRadioButton2)
                     .addComponent(jRadioButton1)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(21, 21, 21))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel3.setText("Buscar:");
@@ -179,9 +171,9 @@ public class BuscarTecnico extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel3)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField5)
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,70 +185,30 @@ public class BuscarTecnico extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jCBoxBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione..." }));
-
-        jLabel6.setText("Seleccionar:");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCBoxBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCBoxBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(161, 161, 161))))
+                .addComponent(jScrollPane1)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(36, 211, Short.MAX_VALUE)
+                .addGap(36, 208, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(148, 148, 148))
+                .addGap(145, 145, 145))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(45, 45, 45)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -295,8 +247,52 @@ public class BuscarTecnico extends javax.swing.JFrame {
                 trs = new TableRowSorter(modeloTabla);
                 this.tablaBusqueda.setRowSorter(trs);
                 break;
+            case 4:
+                this.tablaBusqueda.addKeyListener(new KeyAdapter(){
+                    @Override
+                    public void keyReleased(final KeyEvent evt){
+                        trs.setRowFilter(RowFilter.regexFilter("(?i)"+jTextField5.getText(),3));
+                    }
+                });
+                trs = new TableRowSorter(modeloTabla);
+                this.tablaBusqueda.setRowSorter(trs);
+                break;
             default:
                 break;
+        }
+        if(this.jRadioButton1.isSelected()){
+            
+            this.jTextField5.addKeyListener(new KeyAdapter(){
+                    @Override
+                    public void keyReleased(final KeyEvent evt){
+                        trs.setRowFilter(RowFilter.regexFilter("(?i)"+jTextField5.getText(),4));
+                    }
+                }); 
+                trs = new TableRowSorter(modeloTabla);
+                this.tablaBusqueda.setRowSorter(trs);
+        }
+        if (this.jRadioButton2.isSelected()) {
+            
+            this.jTextField5.addKeyListener(new KeyAdapter(){
+                    @Override
+                    public void keyReleased(final KeyEvent evt){
+                        
+                        trs.setRowFilter(RowFilter.regexFilter("(?i)"+jTextField5.getText(),5));
+                    }
+                }); 
+                trs = new TableRowSorter(modeloTabla);
+                this.tablaBusqueda.setRowSorter(trs);
+        }
+        if (this.jRadioButton3.isSelected()) {
+            
+            this.jTextField5.addKeyListener(new KeyAdapter(){
+                    @Override
+                    public void keyReleased(final KeyEvent evt){
+                        trs.setRowFilter(RowFilter.regexFilter("(?i)"+jTextField5.getText(),6));
+                    }
+                }); 
+                trs = new TableRowSorter(modeloTabla);
+                this.tablaBusqueda.setRowSorter(trs);
         }
         
     } 
@@ -341,7 +337,7 @@ public class BuscarTecnico extends javax.swing.JFrame {
         if (this.jRadioButton1.isSelected()) {
             this.jRadioButton2.setSelected(false);
             this.jRadioButton3.setSelected(false);
-            CargarComboBox.cargar(this.jCBoxBusqueda, "SELECT * FROM Regiones");
+            
         }
     }//GEN-LAST:event_jRadioButton1StateChanged
 
@@ -349,7 +345,7 @@ public class BuscarTecnico extends javax.swing.JFrame {
         if (this.jRadioButton2.isSelected()) {
             this.jRadioButton1.setSelected(false);
             this.jRadioButton3.setSelected(false);
-            CargarComboBox.cargar(this.jCBoxBusqueda, "SELECT id_provincia, nom_provincia FROM Provincias INNER JOIN Regiones ON Provincias.id_region1 = Regiones.id_region");
+            
         }
     }//GEN-LAST:event_jRadioButton2StateChanged
 
@@ -357,14 +353,15 @@ public class BuscarTecnico extends javax.swing.JFrame {
         if (this.jRadioButton3.isSelected()) {
             this.jRadioButton1.setSelected(false);
             this.jRadioButton2.setSelected(false);
-            CargarComboBox.cargar(this.jCBoxBusqueda, "SELECT id_comuna, nom_comuna FROM Comunas INNER JOIN Provincias ON Comunas.id_provincia1 = Provincias.id_provincia");
+            
         }
     }//GEN-LAST:event_jRadioButton3ActionPerformed
+
     /*
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5KeyTyped
-    */
+    */    
      private void listarRegistro(){
         tablaBusqueda.setDefaultRenderer(Object.class, new Render());
         modeloTabla = new DefaultTableModel(){
@@ -376,22 +373,24 @@ public class BuscarTecnico extends javax.swing.JFrame {
         modeloTabla.addColumn("Nombre");
         modeloTabla.addColumn("Apellido Paterno");
         modeloTabla.addColumn("Apellido Materno");
+        modeloTabla.addColumn("Especialidad");
         modeloTabla.addColumn("Region");
         modeloTabla.addColumn("Provincia");
         modeloTabla.addColumn("Comuna");
         modeloTabla.addColumn("");
         JButton verperfil = new JButton("Ver Perfil");
         verperfil.setName("Ver Perfil");
-        Object fila[] = new Object[7];
+        Object fila[] = new Object[8];
         for(int i = 0; i < technical.cantidadRegistroTecnico(); i++){
             Tecnico tec = technical.obtenerRegistroTecnico(i);
             fila[0] = ""+tec.getNombre();
             fila[1] = tec.getAp_paterno();
-            fila[2] =  tec.getAp_materno();
-            fila[3] = ""+tec.getDireccion().getRegion();
-            fila[4] = ""+tec.getDireccion().getProvincia();
-            fila[5] = ""+tec.getDireccion().getComuna();
-            fila[6] = verperfil;
+            fila[2] = tec.getEspecialidad();
+            fila[3] =  tec.getAp_materno();
+            fila[4] = ""+tec.getDireccion().getRegion();
+            fila[5] = ""+tec.getDireccion().getProvincia();
+            fila[6] = ""+tec.getDireccion().getComuna();
+            fila[7] = verperfil;
             modeloTabla.addRow(fila);
         }
         tablaBusqueda.setModel(modeloTabla);
@@ -434,22 +433,18 @@ public class BuscarTecnico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jCBoxBusqueda;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTable tablaBusqueda;
     // End of variables declaration//GEN-END:variables

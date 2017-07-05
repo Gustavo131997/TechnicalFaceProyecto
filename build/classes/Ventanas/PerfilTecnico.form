@@ -366,7 +366,7 @@
                 <Property name="rows" type="int" value="5"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea2.setEditable(false);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea2.setEditable(false);&#xa;jTextArea2.setLineWrap(true);&#xa;jTextArea2.setWrapStyleWord(true);"/>
               </AuxValues>
             </Component>
           </SubComponents>

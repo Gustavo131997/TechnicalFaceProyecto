@@ -64,7 +64,7 @@
                       <Component id="lblFoto" min="-2" pref="234" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="ruta" min="-2" pref="17" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
@@ -104,7 +104,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jCheckBoxDatos" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxDir" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jCheckBoxInfo" min="-2" max="-2" attributes="0"/>
                       <Component id="jPanelInPro" min="-2" max="-2" attributes="0"/>
                       <Component id="panelPersonal" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -141,7 +141,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="panelPersonal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCheckBoxDir" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -154,7 +154,7 @@
                       <Component id="jPanel5" max="32767" attributes="0"/>
                       <Component id="jPanel4" min="-2" pref="137" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jCheckBoxInfo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanelInPro" min="-2" max="-2" attributes="0"/>
@@ -453,6 +453,9 @@
                     <Property name="rows" type="int" value="5"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTextArea1.setLineWrap(true);&#xa;jTextArea1.setWrapStyleWord(true);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -477,12 +480,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxDir">
           <Properties>
             <Property name="text" type="java.lang.String" value="Configurar Direccion"/>
           </Properties>
           <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jCheckBox2StateChanged"/>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jCheckBoxDirStateChanged"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">

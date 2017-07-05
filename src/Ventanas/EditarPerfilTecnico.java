@@ -137,7 +137,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel24 = new javax.swing.JLabel();
         jCBoxExp = new javax.swing.JComboBox<>();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBoxDir = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         cBoxRegion = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
@@ -338,6 +338,8 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setEnabled(false);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel24.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -385,10 +387,10 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jCheckBox2.setText("Configurar Direccion");
-        jCheckBox2.addChangeListener(new javax.swing.event.ChangeListener() {
+        jCheckBoxDir.setText("Configurar Direccion");
+        jCheckBoxDir.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jCheckBox2StateChanged(evt);
+                jCheckBoxDirStateChanged(evt);
             }
         });
 
@@ -633,7 +635,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jCheckBoxDatos)
-                    .addComponent(jCheckBox2)
+                    .addComponent(jCheckBoxDir)
                     .addComponent(jCheckBoxInfo)
                     .addComponent(jPanelInPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -661,7 +663,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox2)
+                .addComponent(jCheckBoxDir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -672,7 +674,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                 .addGroup(panelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(25, 25, 25)
                 .addComponent(jCheckBoxInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelInPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -731,7 +733,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                         .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addComponent(ruta, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(206, 206, 206)
+                        .addGap(203, 203, 203)
                         .addComponent(jButton1)
                         .addGap(65, 65, 65)
                         .addComponent(jButton2))
@@ -827,9 +829,9 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckBox6StateChanged
 
-    private void jCheckBox2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBox2StateChanged
+    private void jCheckBoxDirStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBoxDirStateChanged
         boolean enabled = true;
-        if (this.jCheckBox2.isSelected()) {
+        if (this.jCheckBoxDir.isSelected()) {
            this.jPanel2.setEnabled(enabled);
            this.cBoxRegion.setEnabled(enabled);
            this.cBoxProvincia.setEnabled(enabled);
@@ -846,7 +848,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
            this.txtNumCalle.setEnabled(!enabled);
            this.txtNDepar.setEnabled(!enabled);
         }
-    }//GEN-LAST:event_jCheckBox2StateChanged
+    }//GEN-LAST:event_jCheckBoxDirStateChanged
 
     private void jCheckConfiStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckConfiStateChanged
         boolean enabled = true;
@@ -896,7 +898,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxInfoStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (this.jCheckBoxDatos.isSelected() || this.jCheckBox2.isSelected() ||
+        if (this.jCheckBoxDatos.isSelected() || this.jCheckBoxDir.isSelected() ||
             this.jCheckConfi.isSelected() || this.jCheckBoxCorreo.isSelected() ||
             this.jCheckBoxInfo.isSelected() || this.jCheckBox6.isSelected()) {
             
@@ -907,7 +909,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                 tec.setCelular(this.txtCelular.getText());
                 tec.setTelefono(this.txtFonoFijo.getText());
             }
-            if (this.jCheckBox2.isSelected()) {
+            if (this.jCheckBoxDir.isSelected()) {
                 tec.setDireccion(new Direccion());
                 tec.getDireccion().setRegion(this.cBoxRegion.getSelectedItem().toString());
                 tec.getDireccion().setComuna(this.cBoxComuna.getSelectedItem().toString());
@@ -929,7 +931,7 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
                 tec.setDescripcion(this.jTextArea1.getText());
             }
             if (validarCamposObligatoriosTecnicos().equals("Ingrese los siguientes campos:\n")) {
-                if (validarContrasena() && validarEmail()) {
+                if ((validarContrasena() && this.jCheckConfi.isSelected()) || (this.jCheckBoxCorreo.isSelected()&& validarEmail())) {
                     if (validarCampos.validarFormtCorreo(txtCorreo1.getText())) {
                         if (this.jCheckBox6.isSelected()) {
                             if (!ruta.getText().equals(tec.getDirFotoPerfil())) {;
@@ -969,54 +971,71 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
     }//GEN-LAST:event_rutaAncestorAdded
     public String validarCamposObligatoriosUsuario(){
         String informe = "Ingrese los siguientes campos:\n";
-        if (this.txtNombres.getText().equals("")) {
-            informe += "\tIngrese su Nombre\n";
+        if (this.jCheckBoxDatos.isSelected()) {
+            if (this.txtNombres.getText().equals("")) {
+                informe += "\tIngrese su Nombre\n";
+            }
+            if (this.txtApMaterno.getText().equals("")) {
+                informe+= "\tIngrese su Apellido Materno\n";
+            }
+            if (this.txtApPaterno.getText().equals("")) {
+                informe+= "\tIngrese su Apellido Paterno\n";
+            }
+        
         }
-        if (this.txtApMaterno.getText().equals("")) {
-            informe+= "\tIngrese su Apellido Materno\n";
+        if (this.jCheckBoxDir.isSelected()) {
+            if (this.cBoxRegion.getSelectedIndex() == 0) {
+                informe += "\tSelccione una Región\n";
+            }
+            if (this.cBoxProvincia.getSelectedIndex() == 0) {
+                informe += "\tSeleccione una Cuidad\n";
+            }
+            if(this.cBoxComuna.getSelectedIndex() == 0){
+                informe += "\tSeleccione una Comuna\n";
+            }
+            if (this.txtCalle.getText().equals("")) {
+                informe += "\tIngrese la calle donde vives\n";
+            }
+            if (this.txtNumCalle.getText().equals("")) {
+                informe += "\tIngrese el numero de la calle donde vive\n";
+            }
         }
-        if (this.txtApPaterno.getText().equals("")) {
-            informe+= "\tIngrese su Apellido Paterno\n";
-        }
-        if (this.cBoxRegion.getSelectedIndex() == 0) {
-            informe += "\tSelccione una Región\n";
-        }
-        if (this.cBoxProvincia.getSelectedIndex() == 0) {
-            informe += "\tSeleccione una Cuidad\n";
-        }
-        if(this.cBoxComuna.getSelectedIndex() == 0){
-            informe += "\tSeleccione una Comuna\n";
-        }
-        if (this.txtCalle.getText().equals("")) {
-            informe += "\tIngrese la calle donde vives\n";
-        }
-        if (this.txtNumCalle.getText().equals("")) {
-            informe += "\tIngrese el numero de la calle donde vive\n";
-        }
-        if (this.txtUser.getText().equals("")) {
+        if (this.jCheckConfi.isSelected()) {
+            if (this.txtUser.getText().equals("")) {
             informe+= "\tIngrese su Nombre de Usuario\n";
-        }
-        String contrasena = new String(this.txtPass1.getPassword());
-        if (contrasena.equals("")) {
-            informe+= "\tIngrese su Contraseña\n";
-        }
-        String contrasena1 = new String(this.txtPass2.getPassword());
-        if (contrasena1.equals("")) {
-            informe+= "\tIngrese nuevamente la Contraseña\n";
+            }
+            String contrasena = new String(this.txtPass1.getPassword());
+            if (contrasena.equals("")) {
+                informe+= "\tIngrese su Contraseña\n";
+            }
+            String contrasena1 = new String(this.txtPass2.getPassword());
+            if (contrasena1.equals("")) {
+                informe+= "\tIngrese nuevamente la Contraseña\n";
+            }
         }
         return informe;
     }
     public boolean validarContrasena(){
-        return validarCampos.validarPassword(this.txtPass1.getPassword(), this.txtPass2.getPassword());
+        boolean hola = true;
+        if (this.jCheckConfi.isSelected()) {
+            hola = validarCampos.validarPassword(this.txtPass1.getPassword(), this.txtPass2.getPassword());
+        }
+        return hola;
     }
     
     private boolean validarEmail() {
-        return validarCampos.validarCorreo(this.txtCorreo1.getText(),this.txtCorreo2.getText());
+        boolean hola = true;
+        if (this.jCheckBoxCorreo.isSelected()) {
+            hola = validarCampos.validarCorreo(this.txtCorreo1.getText(),this.txtCorreo2.getText());
+        }
+        return hola;
     }
     public String validarCamposObligatoriosTecnicos(){
         String informe = validarCamposObligatoriosUsuario();
-        if (this.jCBEspecialidad.getSelectedIndex() == 0) {
-            informe += "\tSeleccione su especialidad\n";
+        if (this.jCheckBoxInfo.isSelected()) {
+            if (this.jCBEspecialidad.getSelectedIndex() == 0) {
+                informe += "\tSeleccione su especialidad\n";
+            }
         }
         return informe;
     }
@@ -1031,10 +1050,10 @@ public class EditarPerfilTecnico extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jCBEspecialidad;
     private javax.swing.JComboBox<String> jCBoxExp;
     private javax.swing.JComboBox<String> jCFono;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBoxCorreo;
     private javax.swing.JCheckBox jCheckBoxDatos;
+    private javax.swing.JCheckBox jCheckBoxDir;
     private javax.swing.JCheckBox jCheckBoxInfo;
     private javax.swing.JCheckBox jCheckConfi;
     private javax.swing.JLabel jLabel10;

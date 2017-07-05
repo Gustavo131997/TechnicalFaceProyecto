@@ -22,7 +22,7 @@ public class TechnicalFace {
 
         public TechnicalFace() {
             this.nombreRedSocial = "TechnicalFace";
-            this.terminos_condiciones = "Escribir terminos y condiciones";
+            this.terminos_condiciones = "Que la informacion va estar espuesta que el administrador la vea, por lo cual puede eliminarse de la TechnicalFace si se detecta un mal usu";
         }
         
         
@@ -77,7 +77,7 @@ public class TechnicalFace {
         gestorTec.cargarTecnicosGuardados(this);
         GestorArchDirecciones gestorDir = new GestorArchDirecciones();
         gestorDir.cargarDireccionesTecnico(this);
-        gestorDir.cargarDireccionesTecnico(this);
+        gestorDir.cargarDireccionesUsuario(this);
     }
     /**
      * * Se obtiene id_persona para agregar otro Tecnico

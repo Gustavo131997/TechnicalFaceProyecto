@@ -217,6 +217,8 @@ public class PerfilTecnico extends javax.swing.JFrame {
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jTextArea2.setEditable(false);
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setWrapStyleWord(true);
         jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

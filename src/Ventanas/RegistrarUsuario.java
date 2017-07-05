@@ -370,6 +370,8 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel24.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -522,6 +524,11 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         jLabel22.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jLabel22MouseMoved(evt);
+            }
+        });
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
             }
         });
 
@@ -886,6 +893,10 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         inicio.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        Mensajes.informacion(this.technicalFace.getTerminos_condiciones());
+    }//GEN-LAST:event_jLabel22MouseClicked
 
     /**
      * @param args the command line arguments
