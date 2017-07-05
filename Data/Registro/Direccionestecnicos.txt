@@ -1,1 +1,3 @@
  0 , DE LOS LAGOS , OSORNO , OSORNO , Uno , 32 ,  , 
+ 1 , ANTOFAGASTA , EL LOA , CALAMA , Tres Oriente , 678 , 23 , 
+ 2 , ANTOFAGASTA , EL LOA , SAN PEDRO DE ATACAMA , Dos Oriente , 234 , 23 , 
