@@ -19,10 +19,8 @@ import TechnicalFace.Usuario;
 import java.awt.Color;
 import java.awt.Image;
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 /**
  *
@@ -739,9 +737,8 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                         }else{
                             usuario.setDirFotoPerfil("0");
                         }
-                        if (true) {
+
                             technicalFace.guardarUsuario(usuario);
-                        }
                     }else{ 
                         Mensajes.error("Error! En el formato del correo");
                     }

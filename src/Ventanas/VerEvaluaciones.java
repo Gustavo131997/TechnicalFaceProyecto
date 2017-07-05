@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class VerEvaluaciones extends javax.swing.JFrame {
     DefaultTableModel modeloTabla;
     TechnicalFace technical;
-    Usuario administrador;
+    Usuario administrador ;
     /**
      * Creates new form VerEvaluados
      * @param admin es el usuario administrador
@@ -162,7 +162,7 @@ public class VerEvaluaciones extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new VerEvaluaciones().setVisible(true);
+//                new VerEvaluaciones(administrador).setVisible(true);
             }
         });
     }

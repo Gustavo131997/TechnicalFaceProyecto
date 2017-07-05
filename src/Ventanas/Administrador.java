@@ -33,7 +33,6 @@ public class Administrador extends javax.swing.JFrame {
         this.txtTelefono.setText(admin.getTelefono());
         this.txtCorreo.setText(admin.getCorreo());
         if (!admin.getDirFotoPerfil().equals("0")) {
-            System.out.println("hola");
             SeleccionarImagen.cargarImagen(admin.getDirFotoPerfil(), this.fotoPerfil);
         }
         this.administrador = admin;
@@ -299,13 +298,13 @@ public class Administrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBUsuarioActionPerformed
-        ManipularUsuarios man = new ManipularUsuarios();
+        ManipularUsuarios man = new ManipularUsuarios(this.administrador);
         man.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBUsuarioActionPerformed
 
     private void jBTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTecnicoActionPerformed
-        ManipularTecnicos man = new ManipularTecnicos();
+        ManipularTecnicos man = new ManipularTecnicos(this.administrador);
         man.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBTecnicoActionPerformed

@@ -13,6 +13,7 @@ import Componentes.SeleccionarImagen;
 import Componentes.validarCampos;
 import TechnicalFace.TechnicalFace;
 import TechnicalFace.Usuario;
+import java.util.ArrayList;
    
 /**
  *
@@ -29,6 +30,8 @@ public class EditarPerfilUsuario extends javax.swing.JFrame {
     public EditarPerfilUsuario(Usuario tecnico) {
         this.setTitle("Editar Perfil");
         initComponents();
+        technical.setUsuarios(new ArrayList<>()); 
+        technical.cargarSistema();
         CargarComboBox.cargar(cBoxRegion, "SELECT * FROM Regiones");
         this.txtNombres.setText(tecnico.getNombre());
         this.txtApPaterno.setText(tecnico.getAp_paterno());
@@ -42,6 +45,7 @@ public class EditarPerfilUsuario extends javax.swing.JFrame {
         this.txtUser.setText(tecnico.getUser());
         this.txtPass1.setText(tecnico.getPassword());
         this.txtPass2.setText(tecnico.getPassword());
+        //Esto no se va a cargar si el nombre de la region, provincia y comuna
         for (int i = 0; i < this.cBoxRegion.getItemCount(); i++) {
            this.cBoxRegion.setSelectedIndex(i);
            String c = this.cBoxRegion.getSelectedItem().toString();

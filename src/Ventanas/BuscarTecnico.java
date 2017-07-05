@@ -5,7 +5,6 @@
  */
 package Ventanas;
 
-import Componentes.CargarComboBox;
 import Componentes.Render;
 import TechnicalFace.TechnicalFace;
 import TechnicalFace.Tecnico;
@@ -64,6 +63,7 @@ public class BuscarTecnico extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -110,6 +110,11 @@ public class BuscarTecnico extends javax.swing.JFrame {
         jLabel4.setText("Filtrar Por:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar...", "Nombre", "Apellido Paterno", "Apellido Materno", "Especialidad"}));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("O por");
 
@@ -185,6 +190,13 @@ public class BuscarTecnico extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
+        jButton1.setText("Atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -199,6 +211,10 @@ public class BuscarTecnico extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(145, 145, 145))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,8 +224,10 @@ public class BuscarTecnico extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -238,7 +256,7 @@ public class BuscarTecnico extends javax.swing.JFrame {
                 this.tablaBusqueda.setRowSorter(trs);
                 break;
             case 3:
-                this.tablaBusqueda.addKeyListener(new KeyAdapter(){
+                this.jTextField5.addKeyListener(new KeyAdapter(){
                     @Override
                     public void keyReleased(final KeyEvent evt){
                         trs.setRowFilter(RowFilter.regexFilter("(?i)"+jTextField5.getText(),2));
@@ -318,6 +336,8 @@ public class BuscarTecnico extends javax.swing.JFrame {
                         for (int i = 0; i < technical.cantidadRegistroTecnico(); i++) {
                             tec = technical.obtenerRegistroTecnico(i);
                             String da1 =""+tec.getNombre()+" "+tec.getAp_paterno()+" "+tec.getAp_materno();
+                            System.out.println(da1);
+                            System.out.println(da);
                             if (da.equals(da1)) {
                                 PerfilTecnico perfilTecnico = new PerfilTecnico(true,usu, tec);
                                 perfilTecnico.setVisible(true);
@@ -361,7 +381,19 @@ public class BuscarTecnico extends javax.swing.JFrame {
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5KeyTyped
-    */    
+ */
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        this.jRadioButton1.setSelected(false);
+        this.jRadioButton2.setSelected(false);
+        this.jRadioButton3.setSelected(false);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PerfilUsuario perfilUsuario = new PerfilUsuario(usu);
+        perfilUsuario.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+  
      private void listarRegistro(){
         tablaBusqueda.setDefaultRenderer(Object.class, new Render());
         modeloTabla = new DefaultTableModel(){
@@ -385,8 +417,8 @@ public class BuscarTecnico extends javax.swing.JFrame {
             Tecnico tec = technical.obtenerRegistroTecnico(i);
             fila[0] = ""+tec.getNombre();
             fila[1] = tec.getAp_paterno();
-            fila[2] = tec.getEspecialidad();
-            fila[3] =  tec.getAp_materno();
+            fila[2] = tec.getAp_materno();
+            fila[3] =  tec.getEspecialidad();
             fila[4] = ""+tec.getDireccion().getRegion();
             fila[5] = ""+tec.getDireccion().getProvincia();
             fila[6] = ""+tec.getDireccion().getComuna();
@@ -433,6 +465,7 @@ public class BuscarTecnico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

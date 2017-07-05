@@ -9,6 +9,7 @@ import TechnicalFace.Evaluacion;
 import TechnicalFace.Tecnico;
 import TechnicalFace.Usuario;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
    
 /**
@@ -28,6 +29,7 @@ public class VentanaEvaluacion extends javax.swing.JFrame {
     public void evaluar(Tecnico evaluado, Usuario evaluar){
         tecnico = evaluado;
         usuario = evaluar;
+        usuario.setEvaluados(new ArrayList<>());
     }
     /**
      * This method is called from within the constructor to initialize the form.

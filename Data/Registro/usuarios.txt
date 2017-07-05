@@ -1,3 +1,2 @@
- 0 , gustavo , huerta , cayun , admin , usu , 02522a2b2726fb0a03bb19f2d8d9524d , gustavo@gmail.com , +56912312 , +02231221 , 0 
- 1 , Gerson , Huerta , Cayun , Usuario , gus , 202cb962ac59075b964b07152d234b70 , gustavo@hotmail.com , +56998453945 , +027934274 , /Data/Image/Image_1_gus.jpg 
- 2 , Jaime , Aguirrez , Parra , Usuario , huerta , 81dc9bdb52d04dc20036dbd8313ed055 , gus@ufromail.cl , +56912312312 , +022312312 , 0 
+ 0 , Gustavo , Huerta , Cayun , admin , huerta , 81dc9bdb52d04dc20036dbd8313ed055 , gustavo@ufro.cl , +56973473 , +028345938 , 0 
+ 1 , Gerson , Huerta , Cayun , Usuario , ghcayun , 86109d400f0ed29e840b47ed72777c84 , gustavo@hotmail.com , +56943873784 , +02783648 , /Data/Image/Image_1_ghcayun.jpg 
